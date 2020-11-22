@@ -11,14 +11,17 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-for file in ~/.{bash_profile,gitconfig,gitignore}; do
-    curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/master/.$file > $HOME/.$file && source $HOME/.$file;
+for file in {bash_profile,gitconfig,gitignore}; do
+    curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/.$file > ~/.$file;
 done;
 unset file;
 
+# Install brew and some tools
 if [[ ! -e "/usr/local/bin/brew" ]]; then
   {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/main/install.sh)" &&
                  "$(curl -fsSL https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/brew.sh)";
   } &> /dev/null
 fi
+
+source ~/.bash_profile

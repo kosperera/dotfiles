@@ -8,3 +8,8 @@
 	required = true
 [core]
 	excludesfile = ~/.gitignore
+	editor = code --wait
+[init]
+	defaultBranch = main
+[status]
+  showUntrackedFiles = all

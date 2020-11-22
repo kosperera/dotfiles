@@ -16,7 +16,7 @@ This repo includes a shell script for executing the bulk of the configuration I 
 ## Shell Script
 
 ```bash
-curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/master/install.sh > ~/Downloads/install.sh && bash ~/Downloads/install.sh
+curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/install.sh > ~/Downloads/install.sh && bash ~/Downloads/install.sh
 ```
 
 Many of the customizations are taken from [@mdo/config](https://github.com/mdo/config), [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles), and [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).

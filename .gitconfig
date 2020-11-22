@@ -1,0 +1,10 @@
+[user]
+	email = kosala.nuwan@gmail.com
+	name = kosalanuwan
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = ~/.gitignore

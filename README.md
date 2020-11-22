@@ -10,6 +10,8 @@ This repo includes a shell script for executing the bulk of the configuration I 
 | `.bash_profile` | Customizes the Terminal.app prompt.
 | `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more.
 | `.gitignore` | The ignores from [@github/gitignore](https://github.com/github/gitignore) that I use everywhere.
+| `brew.sh` | Install some of the core tools I use.
+| `macos.sh` | Configure Terminal to be smarter.
 
 ## Shell Script
 

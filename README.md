@@ -7,7 +7,8 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 | File | Description
 | --- | ---
-| `.bash_profile` | Customizes the Terminal.app prompt.
+| `.zshrc` | Customizes the default Terminal.app prompt.
+| `.bash_profile` | Customizes the bash Terminal.app prompt.
 | `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more.
 | `.gitignore` | The ignores from [@github/gitignore](https://github.com/github/gitignore) that I use everywhere.
 | `brew.sh` | Install some of the core tools I use.

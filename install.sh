@@ -11,7 +11,7 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-for file in {bash_profile,gitconfig,gitignore}; do
+for file in {zshrc,gitconfig,gitignore}; do
     curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/.$file > ~/.$file;
 done;
 unset file;
@@ -24,4 +24,4 @@ if [[ ! -e "/usr/local/bin/brew" ]]; then
   } &> /dev/null
 fi
 
-source ~/.bash_profile
+source ~/.zshrc

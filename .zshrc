@@ -107,7 +107,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 # Set personal aliases
 
 # utility shortcuts improved
-alias yolo="brew upgrade && brew cask upgrade --greedy && yarn global upgrade --latest" # upgrade every-fuckin-thing
+alias yolo="brew upgrade && brew cask upgrade --greedy" # upgrade every-fuckin-thing
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation

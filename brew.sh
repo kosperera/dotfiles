@@ -16,7 +16,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# Install a modern version of Bash.
+# Uncomment to install a modern version of Bash.
 # brew install bash
 # brew install bash-completion2
 
@@ -28,6 +28,7 @@ brew upgrade
 
 # Install CLI tools
 brew install git
+# Uncomment install locally, use devcontainers otherwise.
 # brew install nvm
 # brew install yarn
 

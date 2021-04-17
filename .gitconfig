@@ -1,15 +1,47 @@
+[alias]
+	# List aliases.
+	aliases = config --get-regexp alias
+
+	# Show the user email for the current repository.
+	whoami = config user.email
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits.
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# View the current working tree status using the short format.
+	s = status -s
+
+	# Pull in remote changes for the current repository and all its submodules.
+	p = pull --recurse-submodules
+
+	# Clone a repository including all submodules.
+	c = clone --recursive
+
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch --all
+	remotes = remote --verbose
+
 [user]
 	email = kosala.nuwan@gmail.com
 	name = kosalanuwan
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = code --wait
+
+	# Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+	
 [init]
 	defaultBranch = main
+
 [status]
   showUntrackedFiles = all

@@ -28,6 +28,7 @@ brew upgrade
 
 # Install CLI tools
 brew install git
+brew install git-lfs
 # Uncomment install locally, use devcontainers otherwise.
 # brew install nvm
 # brew install yarn

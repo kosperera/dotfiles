@@ -17,11 +17,15 @@ This repo includes a shell script for executing the bulk of the configuration I 
 ## Shell Script
 
 ```bash
-curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/install.sh > ~/Downloads/install.sh && bash ~/Downloads/install.sh
+curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/install.sh > ~/.dotfiles/install.sh && bash ~/.dotfiles/install.sh
 ```
 
-Many of the customizations are taken from [@mdo/config](https://github.com/mdo/config), [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles), and [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
+## Credit
 
+Many of the customizations are taken from:
+- [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+- [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles), and 
+- [@mdo/config](https://github.com/mdo/config)
 ## WOMM
 
 Yep, it works on my machine and hopefully it does on your's as well but please don't hate me if it doesn't.

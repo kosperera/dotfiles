@@ -1,0 +1,64 @@
+#!/usr/bin/env zsh
+
+# ZSH prompt
+
+# Load vcs_info function
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Gathering-information-from-version-control-systems
+autoload -Uz vcs_info
+
+# Hook Functions
+# http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+# Executed before each prompt
+precmd () {
+  # Add vsc_info to executed before each prompt
+  # http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
+  vcs_info
+}
+
+# Executed whenever the current working directory is changed
+chpwd () {
+  # Install node using nvm when .nvmrc config file exists in a directory
+  if [ -f .nvmrc ]; then
+    echo "· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
+    echo ""
+    nvm use
+    echo ""
+    echo "· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
+  fi;
+}
+
+# Enable parameter expansion, command substitution and arithmetic expansion in prompts
+# http://zsh.sourceforge.net/Doc/Release/Options.html#Prompting
+setopt PROMPT_SUBST
+
+# Enable git only (i don't use anything else)
+# Enable info about uncommited changes in working directory
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Quickstart
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr "%F{242} (staged files)%f"
+zstyle ':vcs_info:*' unstagedstr "%F{242} (dirty)%f"
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+
+# Format vsc info message
+# zstyle ':vcs_info:git:*' formats "%F{yellow}%r > %b%f vcs: %F{yellow}%s%f "
+zstyle ':vcs_info:git:*' formats "%F{yellow}%r → %b%F{242}%u%c%m%f%f "
+
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && git status --porcelain | grep -m 1 '^??' &>/dev/null
+  then
+    hook_com[misc]='%F{242} (untracked files)%f'
+  fi
+
+}
+
+prompt() {
+  if [ -d .git ]; then
+    echo ${vcs_info_msg_0_}
+  else
+    echo '%F{yellow}%3~%f '
+  fi;
+}
+
+PROMPT='$(prompt)'
+RPROMPT='%F{242}%n, %*%f'

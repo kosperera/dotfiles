@@ -11,14 +11,6 @@ for file in ~/.{path,zsh_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-# nvm setup
-# command provided post brew install nvm
-export NVM_DIR="$HOME/.nvm"
-# This loads nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
-# This loads nvm bash_completion
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  
-
 # Android setup
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$PATH:$ANDROID_HOME/emulator"

@@ -18,6 +18,9 @@ export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
+# Brew setup
+eval "$(/opt/homebrew/bin/brew shellenv)";
+
 # ZSH auto cd
 setopt AUTO_CD
 

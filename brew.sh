@@ -27,16 +27,18 @@ brew upgrade
 # fi;
 
 # Install CLI tools
-brew install git
-brew install git-lfs
+# Uncomment if not installed via XCode
+# brew install git
+# brew install git-lfs
 # Uncomment install locally, use devcontainers otherwise.
 # brew install nvm
 # brew install yarn
 
 # Install CLI tools
-brew cask install docker
-brew cask install figma
-brew cask install visual-studio-code
+brew cask gh
+# brew cask install docker
+# brew cask install figma
+# brew cask install visual-studio-code
 
 # Remove outdated versions from the cellar.
 brew cleanup

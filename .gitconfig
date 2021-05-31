@@ -38,7 +38,13 @@
 	undo = ! git fetch origin master && git reset --hard FETCH_HEAD --recursive
 
 	# git trash : Move all untracked stuff to `.trash` folder.
-	trash =  && mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
+	trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
+
+	# git override master : Replace everything from another branch such as origin/master
+	overwrite = ! sh -C 'git reset --hard origin/{1}'
+
+	# git push-force feature : Force push to remote
+	push-force = ! sh -C 'git push -f origin {1}'
 
 [user]
 	email = kosala.nuwan@gmail.com

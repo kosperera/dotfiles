@@ -1,10 +1,12 @@
 #!/usr/bin/env zsh
 
 # Always list directory contents upon 'cd'
-cd() { builtin cd "$@"; ll; }
+cd () { builtin cd "$@"; ll; }
 
 # mcd: Makes new Dir and jumps inside
 mcd () { mkdir -p "$1" && cd "$1"; }
+
+rd () { rm -rf "$1"; ll; }
 
 # trash: Moves a file to the MacOS trash        
 trash () { command mv "$@" ~/.Trash ; }

@@ -1,35 +1,44 @@
 [alias]
-	# List aliases.
+	# List all aliases.
+	# git a
+	a = aliases
+	# git aliases
 	aliases = config --get-regexp alias
 
-	# Show the user email for the current repository.
+	# git whoami : Show the user email for the current repository.
 	whoami = config user.email
 
-	# View abbreviated SHA, description, and history graph of the latest 20 commits.
+	# git l : View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
-	# List everything
-	ls = ! git s && git branches && git remotes
+	# git s : View the current working tree status using the short format.
+	s = ! git branch && git status -s
 
-	# View the current working tree status using the short format.
-	s = status -s
-
-	# Pull in remote changes for the current repository and all its submodules.
+	# git p : Pull in remote changes for the current repository and all its submodules.
 	p = pull --recurse-submodules
 
-	# Clone a repository including all submodules.
+	# git c : Clone a repository including all submodules.
 	c = clone --recursive
 
 	# Show verbose output about tags, branches or remotes
+	# git tags
 	tags = tag -l
+	# git branches
 	branches = branch --all
+	# git remotes
 	remotes = remote --verbose
 
-	# Create a git repo, publish to remote
+	# git this : Create a git repo, publish to remote
 	this = ! git init && git add -A && git commit -m 'chore: initial commit'
 
-	# Undo everything, reset repo to HEAD
-	undo = ! git fetch origin master && git reset --hard FETCH_HEAD --recursive && git clean -
+	# git purge : Remove all branches except `master` branch.
+	purge = ! git branch | grep -v 'master' | xargs git branch -D
+
+	# git undo : Reset the repo to HEAD and undo everything.
+	undo = ! git fetch origin master && git reset --hard FETCH_HEAD --recursive
+
+	# git trash : Move all untracked stuff to `.trash` folder.
+	trash =  && mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
 
 [user]
 	email = kosala.nuwan@gmail.com
@@ -43,7 +52,9 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	editor = code --wait
+
+	# Let the `$EDITOR` decides that.
+	# editor = code --wait
 
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
@@ -54,7 +65,8 @@
 
 [fetch]
 	# Get rid of dead branches
-	prune = true
+	# Let `git purge` decide that.
+	# prune = true
 
 [status]
   showUntrackedFiles = all

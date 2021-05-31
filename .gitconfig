@@ -8,6 +8,9 @@
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
+	# List everything
+	ls = ! git s && git branches && git remotes
+
 	# View the current working tree status using the short format.
 	s = status -s
 
@@ -21,6 +24,12 @@
 	tags = tag -l
 	branches = branch --all
 	remotes = remote --verbose
+
+	# Create a git repo, publish to remote
+	this = ! git init && git add -A && git commit -m 'chore: initial commit'
+
+	# Undo everything, reset repo to HEAD
+	undo = ! git fetch origin master && git reset --hard FETCH_HEAD --recursive && git clean -
 
 [user]
 	email = kosala.nuwan@gmail.com
@@ -42,6 +51,10 @@
 	
 [init]
 	defaultBranch = main
+
+[fetch]
+	# Get rid of dead branches
+	prune = true
 
 [status]
   showUntrackedFiles = all

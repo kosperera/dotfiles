@@ -1,50 +1,53 @@
 [alias]
 	# List all aliases.
-	# git a
-	a = aliases
 	# git aliases
 	aliases = config --get-regexp alias
+	a = aliases
 
 	# git whoami : Show the user email for the current repository.
 	whoami = config user.email
 
-	# git l : View abbreviated SHA, description, and history graph of the latest 20 commits.
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	# git c : Clone a repository including all submodules.
+	c = clone --recursive
 
 	# git s : View the current working tree status using the short format.
 	s = ! git branch && git status -s
+	# git l : View abbreviated SHA, description, and history graph of the latest 20 commits.
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
 	# git p : Pull in remote changes for the current repository and all its submodules.
 	p = pull --recurse-submodules
+	# git ps : Push current changes to the remote.
+	ps = push
 
-	# git c : Clone a repository including all submodules.
-	c = clone --recursive
+	# git reset-f master : Replace everything focefully from another branch such as origin/master
+	reset-f = ! sh -C 'git fetch origin master && git reset --hard origin/{1} --recursive'
+	rs-f = reset-f
+	# git reset-me : Reset the branch to HEAD and undo everything.
+	reset-me = ! git fetch origin master && git reset --hard FETCH_HEAD --recursive
+	rs-me = reset-me
+	# git push-f feature : Push forcefully to remote
+	push-f = ! sh -C 'git push -f origin {1}'
+	ps-f = push-f
 
 	# Show verbose output about tags, branches or remotes
 	# git tags
 	tags = tag -l
+	t = tags
 	# git branches
 	branches = branch --all
+	b = branch
 	# git remotes
 	remotes = remote --verbose
+	r = remote
 
 	# git this : Create a git repo, publish to remote
 	this = ! git init && git add -A && git commit -m 'chore: initial commit'
 
 	# git purge : Remove all branches except `master` branch.
 	purge = ! git branch | grep -v 'master' | xargs git branch -D
-
-	# git undo : Reset the repo to HEAD and undo everything.
-	undo = ! git fetch origin master && git reset --hard FETCH_HEAD --recursive
-
 	# git trash : Move all untracked stuff to `.trash` folder.
 	trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
-
-	# git override master : Replace everything from another branch such as origin/master
-	overwrite = ! sh -C 'git reset --hard origin/{1}'
-
-	# git push-force feature : Force push to remote
-	push-force = ! sh -C 'git push -f origin {1}'
 
 [user]
 	email = kosala.nuwan@gmail.com

@@ -2,6 +2,7 @@
 	# List all aliases.
 	# git aliases
 	aliases = config --get-regexp alias
+	# git a
 	a = aliases
 
 	# git whoami : Show the user email for the current repository.
@@ -19,29 +20,29 @@
 	p = pull --recurse-submodules
 	# git ps : Push current changes to the remote.
 	ps = push
-
-	# git reset-f master : Replace everything focefully from another branch such as origin/master
-	reset-f = ! sh -C 'git fetch origin master && git reset --hard origin/{1} --recursive'
-	rs-f = reset-f
-	# git reset-me : Reset the branch to HEAD and undo everything.
-	reset-me = ! git fetch origin master && git reset --hard FETCH_HEAD --recursive
-	rs-me = reset-me
-	# git push-f feature : Push forcefully to remote
+	# git push-f {feature} : Push forcefully to remote branch.
 	push-f = ! sh -C 'git push -f origin {1}'
 	ps-f = push-f
 
-	# Show verbose output about tags, branches or remotes
+	# git reset-f {master} : Replace everything focefully from another branch such as origin/master.
+	reset-f = ! sh -C 'git reset --hard origin/{1}'
+	rs-f = reset-f
+	# git reset-me : Reset the branch to HEAD and undo everything.
+	reset-me = ! git fetch origin master && git reset --hard FETCH_HEAD
+	rs-me = reset-me
+
+	# Show verbose output about tags, branches or remotes.
 	# git tags
 	tags = tag -l
 	t = tags
 	# git branches
 	branches = branch --all
-	b = branch
+	br = branch
 	# git remotes
 	remotes = remote --verbose
 	r = remote
 
-	# git this : Create a git repo, publish to remote
+	# git this : Create a git repo, publish to remote.
 	this = ! git init && git add -A && git commit -m 'chore: initial commit'
 
 	# git purge : Remove all branches except `master` branch.
@@ -76,6 +77,8 @@
 	# Get rid of dead branches
 	# Let `git purge` decide that.
 	# prune = true
-
+[pull]
+	rebase = false
+	
 [status]
   showUntrackedFiles = all

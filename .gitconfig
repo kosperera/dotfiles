@@ -9,7 +9,7 @@
 	whoami = config user.email
 
 	# git c : Clone a repository including all submodules.
-	c = clone --recursive
+	c = ! sh -c \"gh c $1\"
 
 	# git s : View the current working tree status using the short format.
 	s = ! git branch && git status -s
@@ -21,11 +21,11 @@
 	# git ps : Push current changes to the remote.
 	ps = push
 	# git push-f {feature} : Push forcefully to remote branch.
-	push-f = ! sh -C 'git push -f origin {1}'
+	push-f = ! sh -c \"git push -f origin $1\"
 	ps-f = push-f
 
 	# git reset-f {master} : Replace everything focefully from another branch such as origin/master.
-	reset-f = ! sh -C 'git reset --hard origin/{1}'
+	reset-f = ! sh -c \"git reset --hard origin/$1\"
 	rs-f = reset-f
 	# git reset-me : Reset the branch to HEAD and undo everything.
 	reset-me = ! git fetch origin master && git reset --hard FETCH_HEAD
@@ -43,7 +43,7 @@
 	r = remote
 
 	# git this : Create a git repo, publish to remote.
-	this = ! git init && git add -A && git commit -m 'chore: initial commit'
+	this = ! sh -c \"git init && git add -A && git commit -m 'chore: initial commit' && gh this $1\" 
 
 	# git purge : Remove all branches except `master` branch.
 	purge = ! git branch | grep -v 'master' | xargs git branch -D
@@ -79,6 +79,6 @@
 	# prune = true
 [pull]
 	rebase = false
-	
+
 [status]
   showUntrackedFiles = all

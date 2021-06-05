@@ -8,4 +8,38 @@ prompt: enabled
 pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
-    co: pr checkout
+    # List all aliases.
+    aliases: alias list
+
+    # gh whoami : Show the user email for the current repository.
+    whoami: '! git whoami && gh auth status -t'
+
+    # gh c {repo} : Clone a GitHub repository.
+    c: repo clone
+
+    # gh s : View the current working tree status using the short format.
+    s: '! git s'
+
+    # gh p : Pull in remote changes for the current repository and all its submodules.
+    p: '! git p'
+
+    # gh ps : Push current changes to the remote.
+    ps: '! git ps'
+
+    # gh push-f {feature} : Push forcefully to remote branch.
+    push-f: '! git push-f "$1"'
+    ps-f: '! gh push-f "$1"'
+
+    # gh reset-f {master} : Replace everything focefully from another branch such as origin/master.
+    reset-f: '! git reset-f "$1"'
+    rs-f: '! gh reset-f "$1"'
+
+    # gh reset-me : Reset the branch to HEAD and undo everything.
+    reset-me: '! git reset-me'
+    rs-me: '! gh reset-me'
+
+    # gh this : Create a git repo, publish to remote.
+    this: '! git this'
+
+    # gh purge : Remove all branches except `master` branch.
+    purge: '! git purge'

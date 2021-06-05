@@ -10,6 +10,7 @@ pager:
 aliases:
     # List all aliases.
     aliases: alias list
+    a: '! gh aliases'
 
     # gh whoami : Show the user email for the current repository.
     whoami: '! git whoami && gh auth status -t'
@@ -39,7 +40,7 @@ aliases:
     rs-me: '! gh reset-me'
 
     # gh this : Create a git repo, publish to remote.
-    this: '! git this'
+    this: repo create -y --enable-wiki=false --private
 
     # gh purge : Remove all branches except `master` branch.
     purge: '! git purge'

@@ -1,35 +1,48 @@
 [alias]
-	# List all aliases.
 	# git aliases
 	aliases = config --get-regexp alias
 	# git a
 	a = aliases
 
-	# git whoami : Show the user email for the current repository.
+	# git whoami
 	whoami = config user.email
 
-	# git c : Clone a repository including all submodules.
+	# git c kosalanuwan/dotfiles
 	c = ! sh -c \"gh c $1\"
 
-	# git s : View the current working tree status using the short format.
+	# git s
 	s = ! git branch && git status -s
-	# git l : View abbreviated SHA, description, and history graph of the latest 20 commits.
+	# git l
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
-	# git p : Pull in remote changes for the current repository and all its submodules.
+	# git p
 	p = pull --recurse-submodules
-	# git ps : Push current changes to the remote.
-	ps = push
-	# git push-f {feature} : Push forcefully to remote branch.
-	push-f = ! sh -c \"git push -f origin $1\"
-	ps-f = push-f
+	# git pf main/feature
+	pf = ! sh -c \"git reset --hard origin/$1\"
 
-	# git reset-f {master} : Replace everything focefully from another branch such as origin/master.
-	reset-f = ! sh -c \"git reset --hard origin/$1\"
-	rs-f = reset-f
-	# git reset-me : Reset the branch to HEAD and undo everything.
-	reset-me = ! git fetch origin master && git reset --hard FETCH_HEAD
-	rs-me = reset-me
+	# git p-fork
+	p-fork = ! sh -c \"git fetch --recurse-submodules upstream && git checkout main && git merge upstream/main\"
+	# git pf-fork
+	pf-fork = ! sh -c \"git checkout main && git reset --hard upstream/main\"
+
+	# git ps
+	ps = push
+	# git psf feature
+	# psf = ! sh -c \"git push --force origin $1\"
+	psf = push --force origin
+
+	# git sy
+	sy = ! sh -c \"git p && git ps\"
+	# git syf main
+	syf = ! sh -c \"git pf $1 && git psf $1\"
+
+	# git sy-fork main
+	sy-fork = ! sh -c \"git p-fork && git ps\"
+	# git syf-fork main
+	syf-fork = ! sh -c \"git pf-fork && git psf main\"
+
+	# git undo
+	undo = ! git fetch origin main && git reset --hard FETCH_HEAD
 
 	# Show verbose output about tags, branches or remotes.
 	# git tags
@@ -42,11 +55,13 @@
 	remotes = remote --verbose
 	r = remote
 
-	# git this : Create a git repo, publish to remote.
-	this = ! sh -c \"git init && git add -A && git commit -m 'chore: initial commit' && gh this $1\" 
+	# git this
+	this = ! sh -c \"git init && git add -A && git commit -m 'chore: initial commit'\"
+	# git publish
+	ps-this = ! sh -c \"gh this $1\"
 
-	# git purge : Remove all branches except `master` branch.
-	purge = ! git branch | grep -v 'master' | xargs git branch -D
+	# git purge : Remove all branches except `main` branch.
+	purge = ! git branch | grep -v 'main' | xargs git branch -D
 	# git trash : Move all untracked stuff to `.trash` folder.
 	trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
 

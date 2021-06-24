@@ -20,6 +20,14 @@ This repo includes a shell script for executing the bulk of the configuration I 
 curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/install.sh > ~/.dotfiles/install.sh && bash ~/.dotfiles/install.sh
 ```
 
+### Rename `master` to `main`:
+```bash
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
 ## Credit
 
 Many of the customizations are taken from:

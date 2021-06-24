@@ -21,9 +21,9 @@
 	pf = ! sh -c \"git reset --hard origin/$1\"
 
 	# git p-fork
-	p-fork = ! sh -c \"git fetch --recurse-submodules upstream && git checkout main && git merge upstream/main\"
+	p-fork = ! sh -c \"git fetch --recurse-submodules upstream && git checkout main -f && git pull --ff upstream main\"
 	# git pf-fork
-	pf-fork = ! sh -c \"git checkout main && git reset --hard upstream/main\"
+	pf-fork = ! sh -c \"git checkout main -f && git reset --hard upstream/main\"
 
 	# git ps
 	ps = push

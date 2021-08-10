@@ -42,7 +42,7 @@
 	syf-fork = ! sh -c \"git pf-fork && git psf main\"
 
 	# git undo
-	undo = ! git fetch origin main && git reset --hard FETCH_HEAD
+	undo = ! git fetch origin main && git reset --hard FETCH_HEAD && git clean -fd
 
 	# Show verbose output about tags, branches or remotes.
 	# git tags
@@ -63,7 +63,8 @@
 	# git purge : Remove all branches except `main` branch.
 	purge = ! git branch | grep -v 'main' | xargs git branch -D
 	# git trash : Move all untracked stuff to `.trash` folder.
-	trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
+	# FIXME: `mv: illegal option -- t`
+	# trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
 
 [user]
 	email = kosala.nuwan@gmail.com

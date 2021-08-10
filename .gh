@@ -64,4 +64,4 @@ aliases:
     # gh purge
     purge: '! git purge'
     # gh trash
-    trash: '! git trash'
+    # trash: '! git trash'

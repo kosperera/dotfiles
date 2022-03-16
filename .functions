@@ -69,6 +69,8 @@ ii() {
     echo
 }
 
+# serve: run a dead simple web server
+# E.g. serve 4049
 serve() {
     echo "Your cool server is running on http://localhost:$1"
     open http://localhost:$1/ && python3 -m http.server $1

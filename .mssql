@@ -1,7 +1,8 @@
 # docker-compose.yml to dead simple sql server
+name: sql-server
 services:
-  db:
-      # container_name: sql
+  az-sql:
+      container_name: azure-sql
       image: mcr.microsoft.com/azure-sql-edge:latest
 
       environment:
@@ -26,6 +27,7 @@ services:
 
 volumes:
   sql-data:
+    name: sql-data
 
 # networks:
 #   default:

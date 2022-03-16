@@ -48,19 +48,6 @@ alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on 
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
 
-# some git shortcuts
-# alias g="git"
-# alias gc="git commit"
-# alias ga="git add"
-# alias gaa="git add -A"
-# alias gb="git branches"
-# alias gco="git checkout"
-# alias gcom="git checkout master"
-# alias gacm="git add -A && git commit -m"
-# alias gpfwl="git push --force-with-lease"
-# alias gitupdatemaster="git switch master && git p && git switch -"
-# alias gitcleanup="git branches | grep -v "master" | xargs git branches -D"
-
 # why your mac is so slow?
 alias top="top -o vsize"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"

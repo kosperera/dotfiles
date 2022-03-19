@@ -1,0 +1,59 @@
+#!/usr/bin/env zsh
+
+dccmd() {
+    echo "echoing args '${@:1}'"
+    if [ -n $1 ] ; then
+      case $1 in
+        start | s)    dccmd up ;;
+        run | r)      dccmd up ;;
+        up)           docker compose up -d --quiet-pull ;;
+        stop | st)    docker compose stop ;;
+        restart | rs) docker compose restart ;;
+        down | d)     docker compose down --rmi -v --remove-orphans ;;
+        remove | rm)  dccmd d ;;  
+        clean | c)    # remove all exited containers and dangling images.
+
+          containers=$(docker ps --all -q -f status=exited)
+          [ ! -z $containers ] && docker rm $containers || echo "No exited containers found."
+          
+          images=$(docker images -q -f dangling=true)
+          [ ! -z $images ] && docker rmi $images || echo "No dangling images found."
+          ;;
+
+        purge | p)    docker system prune -a -f --volumes ;;
+        sql)          sqlcmd ${@:2} ;;
+        *)            docker compose $* ;;
+      esac
+    else
+      echo "dccmd '$1' is not a valid command"
+    fi
+}
+
+sqlcmd() {
+    if [ -n $1 ] ; then
+      case $1 in
+        run | r)      sqlcmd up ;;
+        start | s)    sqlcmd up ;;
+        up )          dccmd -f .sql-server up -d --quiet-pull ;;
+        stop | st)    dccmd -f .sql-server stop ;;
+        restart | rs) dccmd -f .sql-server restart ;;
+        down | d)     dccmd -f .sql-server down --rmi -v --remove-orphans ;;
+        remove | rm)  sqlcmd d ;;
+
+        *)  echo "sql '$1' cannot be executed via sqlcmd()"   ;;
+      esac
+    else
+      echo "sqlcmd '$1' is not a valid command"
+    fi
+}
+
+# tierd of typing docker compose?
+alias dc=dccmd
+
+# dead simple sql server running on docker
+# compose file is .mssql
+# sql r: spin up sql server on default port.
+# sql st: shutdown sql server and remove container and image and everything.
+# sql rs: attempt to restart the sql server.
+# sql rm: remove sql server.
+alias sql=sqlcmd

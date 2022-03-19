@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
@@ -8,23 +6,13 @@ osascript -e 'tell application "System Preferences" to quit'
 sudo -v
 
 # Setup macOS
-/bin/zsh -c macos.zsh;
+/bin/zsh macos.zsh;
 
-# Symlink .dotfiles into HOME
-
-# Keep-alive: update existing `sudo` time stamp until script has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-for file in .{zsh_prompt,exports,aliases,functions,zshrc,gitconfig,gitignore,npmrc,docker-compose,sql-server}; do
-  # Symlink instead of replacing.
-  # HINT: ln -s ~/.dotfiles/.docker-compose ~/.docker-compose  
-  /bin/zsh ln -s $file ~/$file;
-done;
-unset file;
-
-# GitHub is special
-/bin/zsh ln -s ~/.config/gh/config.yml ~/.gh
+# Create simlinks for dotfiles
+/bin/zsh symlink.zsh;
 
 # Install brew and some tools
-if [ ! -e "opt/homebrew/bin/brew" ]; then /bin/zsh  -c brew.zsh; &> /dev/null fi
+if [ ! -e "opt/homebrew/bin/brew" ]; then /bin/zsh brew.zsh; &> /dev/null fi
 
+# Reload the zsh profile from home.
 source ~/.zshrc

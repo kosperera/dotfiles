@@ -7,21 +7,28 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 | File | Description
 | --- | ---
-| `.zshrc` | Customizes the default Terminal.app prompt.
-| `.bash_profile` | Customizes the bash Terminal.app prompt.
-| `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more.
+| `install.zsh` | Entry point for dotfiles.
+| `macos.zsh` | Configure macOS and the Terminal to be smarter.
+| `brew.zsh` | Install some of the core tools I use.
+| `.zshrc` | Customizes the default Terminal.app to be smarter.
+| `.gh` | Global GitHub configuration to specify shortcuts and helper functions.
+ | `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more.
+| `.npmrc` | Global NPM and Yarn configurations.
+| `.docker-compose` | Configure Docker to be smarter.
+| `.sql-server` | Configure Azure SQL to run locally for my .NET [Database Projects](https://www.youtube.com/watch?v=I6T9OA9YBGg).
 | `.gitignore` | The ignores from [@github/gitignore](https://github.com/github/gitignore) that I use everywhere.
-| `brew.sh` | Install some of the core tools I use.
-| `macos.sh` | Configure Terminal to be smarter.
+| `.bash_profile` | Customizes the bash Terminal.app prompt is _Deprecated_ :-1:
 
 ## Shell Script
 
-```bash
-curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/install.sh > ~/.dotfiles/install.sh && bash ~/.dotfiles/install.sh
+```zsh
+curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/main/install.zsh > ~/.dotfiles/install.zsh && \
+  cd .dotfiles/ && \
+  /bin/zsh install.zsh
 ```
 
 ### Rename `master` to `main`:
-```bash
+```zsh
 git branch -m master main
 git fetch origin
 git branch -u origin/main main
@@ -34,6 +41,7 @@ Many of the customizations are taken from:
 - [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 - [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles), and 
 - [@mdo/config](https://github.com/mdo/config)
+
 ## WOMM
 
 Yep, it works on my machine and hopefully it does on your's as well but please don't hate me if it doesn't.

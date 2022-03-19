@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # Preferred editor
 export EDITOR=/usr/local/bin/code
 

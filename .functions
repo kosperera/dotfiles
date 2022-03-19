@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # Always list directory contents upon 'cd'
 cd () { builtin cd "$@"; ll; }
 

@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 #
 # General UI/UX
 #

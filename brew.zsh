@@ -1,9 +1,7 @@
-#!/usr/bin/env zsh
-
 # Install brew
 if [ ! -e "/usr/local/bin/brew" ]; then
   {
-    /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/zsh "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   } &> /dev/null
 fi
 

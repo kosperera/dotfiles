@@ -6,9 +6,9 @@ for file in .{zsh_prompt,zshrc,gitconfig,gitignore,npmrc}; do
   # Symlink instead of replacing.
   # ln -s <source> <destination>
   # E.g. ln -s ~/.dotfiles/.docker-compose ~/.docker-compose
-  rm -rf ~/$file && ln -s $file ~/$file
+  rm -rf ~/$file && ln -s ~/.dotfiles/$file ~/$file
 done;
 unset file;
 
 # GitHub is special
-rm -rf ~/.config/gh/config.yml && ln -s .gh ~/.config/gh/config.yml
+rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.gh ~/.config/gh/config.yml

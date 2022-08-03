@@ -26,14 +26,17 @@ brew upgrade
 
 # Install CLI tools
 # Uncomment if not installed via XCode
-# brew install git
-# brew install git-lfs
+brew install git
+brew install git-lfs
 # Uncomment install locally, use devcontainers otherwise.
 # brew install nvm
 # brew install yarn
 
-# Install CLI tools
 brew cask gh
+
+brew tap microsoft/git
+brew install --cask git-credential-manager-core
+
 # brew cask install docker
 # brew cask install figma
 # brew cask install visual-studio-code

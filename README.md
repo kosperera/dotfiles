@@ -12,12 +12,11 @@ This repo includes a shell script for executing the bulk of the configuration I 
 | `brew.zsh` | Install some of the core tools I use.
 | `.zshrc` | Customizes the default Terminal.app to be smarter.
 | `.gh` | Global GitHub configuration to specify shortcuts and helper functions.
- | `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more.
+| `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more.
 | `.npmrc` | Global NPM and Yarn configurations.
 | `.docker-compose` | Configure Docker to be smarter.
 | `.sql-server` | Configure Azure SQL to run locally for my .NET [Database Projects](https://www.youtube.com/watch?v=I6T9OA9YBGg).
 | `.gitignore` | The ignores from [@github/gitignore](https://github.com/github/gitignore) that I use everywhere.
-| `.bash_profile` | Customizes the bash Terminal.app prompt is _Deprecated_ :-1:
 
 ## Shell Script
 

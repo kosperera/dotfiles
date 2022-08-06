@@ -2,7 +2,8 @@
 cd () { builtin cd "$@"; ll; }
 
 # mcd: Makes new Dir and jumps inside
-mcd () { mkdir -p "$1" && cd "$1"; }
+md () { mkdir -p "$1" }
+mcd () { md "$1" && cd "$1"; }
 
 rd () { rm -rf "$1"; ll; }
 

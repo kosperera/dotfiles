@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Install brew
 if [ ! -e "/usr/local/bin/brew" ]; then
   {

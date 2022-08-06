@@ -11,4 +11,5 @@ done;
 unset file;
 
 # GitHub is special
+mkdir -p ~/.config/gh
 rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.gh ~/.config/gh/config.yml

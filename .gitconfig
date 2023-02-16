@@ -89,6 +89,9 @@
 [init]
 	defaultBranch = main
 
+[safe]
+	directory = *
+
 [fetch]
 	# Get rid of dead branches
 	# Let `git purge` decide that.

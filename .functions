@@ -79,10 +79,11 @@ serve() {
 dc() {
     if [ -n $1 ] ; then
       case $1 in
-        up)           docker compose up --build -d --quiet-pull ;;
-        stop | st)    docker compose stop ;;
-        restart | rs) docker compose restart ;;
-        down | d)     docker compose down --rmi "all" -v --remove-orphans ;;
+        ll | list)    docker ps --all --size && docker images --all ;;
+        up)           docker compose ${@:2} up --build -d --quiet-pull ;;
+        stop | st)    docker compose ${@:2} stop ;;
+        restart | rs) docker compose ${@:2} restart ;;
+        down | d)     docker compose ${@:2} down --rmi "all" -v --remove-orphans ;;
         clean | c)    # remove all exited containers and dangling images.
 
           local containers=$(docker ps --all -q -f status=exited)
@@ -92,21 +93,22 @@ dc() {
           [ ! -z $images ] && docker rmi $images || echo "No dangling images found."
           ;;
 
-        purge | p)    docker system prune -a -f --volumes ;;
+        purge)        docker system prune -a -f --volumes ;;
         sql)          sql ${@:2} ;;
         help | h)
           echo -e ""
           echo -e "Tierd of typing docker compose?"
           echo -e ""
-          echo -e "dc h  | help:    List all dc commands and aliases"
-          echo -e "dc up:           Spin up a container, same as dc run"
-          echo -e "dc rs | restart: Restart a running or hanging server"
-          echo -e "dc st | stop:    Stop a running"
-          echo -e "dc d  | down:    Shutdown a running or hanging server, then remove all images and orphans"
-          echo -e "dc c  | clean:   Remove all existed containers and dangling images"
-          echo -e "dc p  | purge:   Remove everything, including volumes"
-          echo -e "dc sql:          Spin up a sql server in a container"
-          echo -e "dc *:            Forward everything else to docker compose command"
+          echo -e "dc h  | help     : List all dc commands and aliases"
+          echo -e "dc ll | list     : List all containers and images"
+          echo -e "dc up            : Spin up a container, optionally pass config file path"
+          echo -e "dc rs | restart  : Restart a running or hanging server, optionally pass config file path"
+          echo -e "dc st | stop     : Stop a running container, optionally pass config file path"
+          echo -e "dc d  | down     : Shutdown a running or hanging container, then remove all images and orphans, optionally pass config file path"
+          echo -e "dc c  | clean    : Remove all existed containers and dangling images"
+          echo -e "dc purge         : Remove everything, including volumes"
+          echo -e "dc sql           : Spin up a sql server in a container"
+          echo -e "dc *             : Short hand for 'docker compose'"
           echo -e ""
           ;;
 
@@ -131,11 +133,11 @@ sql() {
           echo -e "Dead simple sql server running on docker"
           echo -e "The docker compose file is .sql-server"
           echo -e ""
-          echo -e "sql h  | help:    List all sql commands and aliases"
-          echo -e "sql up:           Spin up a sql server in a container"
-          echo -e "sql rs | restart: Restart sql server"
-          echo -e "sql st | stop:    Stop a running sql server"
-          echo -e "sql d  | down:    Shutdown sql server, then remove sql images and orphans"
+          echo -e "sql h  | help      : List all sql commands and aliases"
+          echo -e "sql up             : Spin up a sql server in a container"
+          echo -e "sql rs | restart   : Restart sql server"
+          echo -e "sql st | stop      : Stop a running sql server"
+          echo -e "sql d  | down      : Shutdown sql server, then remove sql images and orphans"
           echo -e ""
           ;;
 

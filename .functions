@@ -74,3 +74,69 @@ serve() {
     echo "Your cool server is running on http://localhost:$1"
     open http://localhost:$1/ && python3 -m http.server $1
 }
+
+# Tierd of typing docker compose?
+dc() {
+    if [ -n $1 ] ; then
+      case $1 in
+        up)           docker compose up --build -d --quiet-pull ;;
+        stop | st)    docker compose stop ;;
+        restart | rs) docker compose restart ;;
+        down | d)     docker compose down --rmi "all" -v --remove-orphans ;;
+        clean | c)    # remove all exited containers and dangling images.
+
+          local containers=$(docker ps --all -q -f status=exited)
+          [ ! -z $containers ] && docker rm $containers || echo "No exited containers found."
+          
+          local images=$(docker images -q -f dangling=true)
+          [ ! -z $images ] && docker rmi $images || echo "No dangling images found."
+          ;;
+
+        purge | p)    docker system prune -a -f --volumes ;;
+        sql)          sql ${@:2} ;;
+        help | h)
+          echo -e "\nTierd of typing docker compose?"
+          echo -e "\ndc up:           Spin up a container, same as dc run"
+          echo -e "\ndc st | stop:    Stop a running"
+          echo -e "\ndc rs | restart: Restart a running or hanging server"
+          echo -e "\ndc d  | down:    Shutdown a running or hanging server, then remove all images and orphans"
+          echo -e "\ndc c  | clean:   Remove all existed containers and dangling images"
+          echo -e "\ndc p  | purge:   Remove everything, including volumes"
+          echo -e "\ndc sql:          Spin up a sql server in a container"
+          echo -e "\ndc h  | help:    List all dc commands and aliases"
+          echo -e "\ndc *:            Forward everything else to docker compose command"
+          ;;
+
+        *)            docker compose $* ;;
+      esac
+    else
+      echo "dc '$1' is not a valid command"
+    fi
+}
+
+# Dead simple sql server running on docker
+# compose file is .sql-server
+sql() {
+    if [ -n $1 ] ; then
+      case $1 in
+        up )          dc -f ~/.dotfiles/.sql-server up --build -d --quiet-pull ;;
+        stop | st)    dc -f ~/.dotfiles/.sql-server stop ;;
+        restart | rs) dc -f ~/.dotfiles/.sql-server restart ;;
+        down | d)     dc -f ~/.dotfiles/.sql-server down --rmi "all" -v --remove-orphans ;;
+        help | h)
+          echo -e "\nDead simple sql server running on docker"
+          echo -e "\ncompose file is .sql-server"
+          echo -e "\nsql up:           Spin up a sql server in a container"
+          echo -e "\nsql st | stop:    Stop a running sql server"
+          echo -e "\nsql rs | restart: Restart sql server"
+          echo -e "\nsql d  | down:    Shutdown sql server, then remove sql images and orphans"
+          echo -e "\nsql h  | help:    List all sql commands and aliases"
+          echo -e "\ndc *:             Forward everything else to docker compose (dc) command"
+          ;;
+
+        *)  echo "sql '$1' cannot be executed via sql() command"   ;;
+      esac
+    else
+      echo "sql '$1' is not a valid command"
+    fi
+}

@@ -79,7 +79,15 @@ serve() {
 dc() {
     if [ -n $1 ] ; then
       case $1 in
-        ll | list)    docker ps --all --size && docker images --all ;;
+        ll | list)
+
+          echo -e "\nList of all the containers"
+          docker ps --all --size
+          
+          echo -e "\nList of all the images"
+          docker images --all
+          ;;
+
         up)           docker compose ${@:2} up --build -d --quiet-pull ;;
         stop | st)    docker compose ${@:2} stop ;;
         restart | rs) docker compose ${@:2} restart ;;

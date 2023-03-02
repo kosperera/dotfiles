@@ -48,6 +48,6 @@ alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on 
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
 
-# why your mac is so slow?
+# Why your mac is so slow?
 alias top="top -o vsize"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"

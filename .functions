@@ -63,7 +63,7 @@ ii() {
     echo -e "\n${RED}Current date :$NC " ; date
     echo -e "\n${RED}Machine stats :$NC " ; uptime
     echo -e "\n${RED}Current network location :$NC " ; scselect
-    echo -e "\n${RED}Public facing IP Address :$NC " ;myip
+    echo -e "\n${RED}Public facing IP Address :$NC " ; myip
     #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
     echo
 }
@@ -95,16 +95,19 @@ dc() {
         purge | p)    docker system prune -a -f --volumes ;;
         sql)          sql ${@:2} ;;
         help | h)
-          echo -e "\nTierd of typing docker compose?"
-          echo -e "\ndc up:           Spin up a container, same as dc run"
-          echo -e "\ndc st | stop:    Stop a running"
-          echo -e "\ndc rs | restart: Restart a running or hanging server"
-          echo -e "\ndc d  | down:    Shutdown a running or hanging server, then remove all images and orphans"
-          echo -e "\ndc c  | clean:   Remove all existed containers and dangling images"
-          echo -e "\ndc p  | purge:   Remove everything, including volumes"
-          echo -e "\ndc sql:          Spin up a sql server in a container"
-          echo -e "\ndc h  | help:    List all dc commands and aliases"
-          echo -e "\ndc *:            Forward everything else to docker compose command"
+          echo -e ""
+          echo -e "Tierd of typing docker compose?"
+          echo -e ""
+          echo -e "dc h  | help:    List all dc commands and aliases"
+          echo -e "dc up:           Spin up a container, same as dc run"
+          echo -e "dc rs | restart: Restart a running or hanging server"
+          echo -e "dc st | stop:    Stop a running"
+          echo -e "dc d  | down:    Shutdown a running or hanging server, then remove all images and orphans"
+          echo -e "dc c  | clean:   Remove all existed containers and dangling images"
+          echo -e "dc p  | purge:   Remove everything, including volumes"
+          echo -e "dc sql:          Spin up a sql server in a container"
+          echo -e "dc *:            Forward everything else to docker compose command"
+          echo -e ""
           ;;
 
         *)            docker compose $* ;;
@@ -124,14 +127,16 @@ sql() {
         restart | rs) dc -f ~/.dotfiles/.sql-server restart ;;
         down | d)     dc -f ~/.dotfiles/.sql-server down --rmi "all" -v --remove-orphans ;;
         help | h)
-          echo -e "\nDead simple sql server running on docker"
-          echo -e "\ncompose file is .sql-server"
-          echo -e "\nsql up:           Spin up a sql server in a container"
-          echo -e "\nsql st | stop:    Stop a running sql server"
-          echo -e "\nsql rs | restart: Restart sql server"
-          echo -e "\nsql d  | down:    Shutdown sql server, then remove sql images and orphans"
-          echo -e "\nsql h  | help:    List all sql commands and aliases"
-          echo -e "\ndc *:             Forward everything else to docker compose (dc) command"
+          echo -e ""
+          echo -e "Dead simple sql server running on docker"
+          echo -e "The docker compose file is .sql-server"
+          echo -e ""
+          echo -e "sql h  | help:    List all sql commands and aliases"
+          echo -e "sql up:           Spin up a sql server in a container"
+          echo -e "sql rs | restart: Restart sql server"
+          echo -e "sql st | stop:    Stop a running sql server"
+          echo -e "sql d  | down:    Shutdown sql server, then remove sql images and orphans"
+          echo -e ""
           ;;
 
         *)  echo "sql '$1' cannot be executed via sql() command"   ;;

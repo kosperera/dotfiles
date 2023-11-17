@@ -105,7 +105,7 @@ dc() {
         sql)          sql ${@:2} ;;
         help | h)
           echo -e ""
-          echo -e "Tierd of typing docker compose?"
+          echo -e "Tierd of typing `docker compose`?"
           echo -e ""
           echo -e "dc h  | help     : List all dc commands and aliases"
           echo -e "dc ll | list     : List all containers and images"

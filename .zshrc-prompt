@@ -58,5 +58,8 @@ prompt() {
   fi;
 }
 
-PROMPT='$(prompt)'
-RPROMPT='%F{242}%n, %*%f'
+# PROMPT='$(prompt)'
+# RPROMPT='%F{242}%n, %*%f'
+
+PROMPT='%U%F{4}%~%f%u '
+RPROMPT='${vcs_info_msg_0_}'

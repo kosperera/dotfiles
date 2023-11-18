@@ -81,9 +81,8 @@ Yep, it works on my machine and hopefully it does on your's as well but please d
 
 Many of the customizations are taken from:
 
-- [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-- [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles), and 
-- [@mdo/config](https://github.com/mdo/config)
+- [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), and
+- [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles)
 
 
 
@@ -91,4 +90,4 @@ Many of the customizations are taken from:
 
 Copyright :copyright: 2020 It's actually me (@kosalanuwan). All rights reserved.
 
-The source code is licensed under the [MIT license](#mit-1-ov-file).
+The source code is licensed under the [MIT license](#MIT-1-ov-file).

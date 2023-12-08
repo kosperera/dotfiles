@@ -1,74 +1,71 @@
-[alias]
-	# git aliases
-	aliases = config --get-regexp alias
-	# git a
-	a = aliases
-
-	# git whoami
-	whoami = config user.email
-
-	# git c kosalanuwan/dotfiles
-	c = ! sh -c \"gh c $1\"
-
-	# git s
-	s = ! git branch && git status -s
-	# git l
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-
-	# git p
-	p = pull --recurse-submodules
-	# git pf main/feature
-	pf = ! sh -c \"git reset --hard origin/$1\"
-
-	# git p-fork
-	p-fork = ! sh -c \"git fetch --recurse-submodules upstream && git checkout main -f && git pull --ff upstream main\"
-	# git pf-fork
-	pf-fork = ! sh -c \"git checkout main -f && git reset --hard upstream/main\"
-
-	# git ps
-	ps = push
-	# git psf feature
-	# psf = ! sh -c \"git push --force origin $1\"
-	psf = push --force origin
-
-	# git sy
-	sy = ! sh -c \"git p && git ps\"
-	# git syf main
-	syf = ! sh -c \"git pf $1 && git psf $1\"
-
-	# git sy-fork main
-	sy-fork = ! sh -c \"git p-fork && git ps\"
-	# git syf-fork main
-	syf-fork = ! sh -c \"git pf-fork && git psf main\"
-
-	# git undo
-	undo = ! git fetch origin main && git reset --hard FETCH_HEAD && git clean -fd
-
-	# Show verbose output about tags, branches or remotes.
-	# git tags
-	tags = tag -l
-	t = tags
-	# git branches
-	branches = branch --all
-	br = branch
-	# git remotes
-	remotes = remote --verbose
-	r = remote
-
-	# git this
-	this = ! sh -c \"git init && git add -A && git commit -m 'chore: initial commit'\"
-	# git publish
-	ps-this = ! sh -c \"gh this $1\"
-
-	# git purge : Remove all branches except `main` branch.
-	purge = ! git branch | grep -v 'main' | xargs git branch -D
-	# git trash : Move all untracked stuff to `.trash` folder.
-	# FIXME: `mv: illegal option -- t`
-	# trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
-
 [user]
-	email = kosala.nuwan@gmail.com
 	name = kosalanuwan
+	email = kosala.nuwan@gmail.com
+
+# Aliases allow you to create nicknames for git commands
+# Read more at https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
+[alias]
+	# Lists all the aliases defined below.
+	# git a
+	a = config --get-regexp alias
+
+	# Shows the username and the GitHub authenticated user info.
+	# git whoami
+	whoami = !git config user.email & git config user.name
+
+	# Clones a repo from GitHub.com or from an HTTP path.
+	# git c https://github.com/kosalanuwan/zebra-snooze
+	c = clone
+
+	# Short-hand for 'git status --long'.
+	# git s
+	s = status --long
+	# git remotes
+	r = remote --verbose 
+	# git branches
+	br = branch --all
+	# Lists the latest 10 commits in a Git Graph.
+	# git l10
+	l10 = log --pretty=oneline -n 10 --graph --abbrev-commit
+
+	# Short-hand for 'git switch'.
+	# git sw feat-43-upgrades
+	sw = !git fetch --all -q && git switch "$1"
+	# Creates a new branch with changes merged if any.
+	# git b fubar
+	b = switch --merge --create
+	# Deletes a given local branch.
+	# git del feat-43-upgrades
+    del = branch -d
+
+	# Pulls latest changes from the default remote and sub-modules if any.
+	# git p
+	# git p --force
+	p = pull --recurse-submodules
+
+	# Commits all changes with a given commit message.
+	# git cm 'chore: initial commit'
+	cm = !git add -A && git commit -m "$1"
+
+	# Short-hand for 'git push'.
+	# git ps
+	# git ps --force
+	ps = push
+
+    # Resets everything to its remote/origin default branch.
+    # NOTE: Recommended when trunk-based development instread of forking.
+    #       Use `gh yolo`` for forking.
+	# git yolo
+	yolo = !git fetch --force && git reset FETCH_HEAD --hard && git clean -df && git ps --force
+
+	# git this repo-named-snafu
+	this = !git init -q && git cm "chore: initial commit"
+
+# 	# git purge : Remove all branches except `main` branch.
+# 	purge = ! git branch | grep -v 'main' | xargs git branch -D
+# 	# git trash : Move all untracked stuff to `.trash` folder.
+# 	# FIXME: `mv: illegal option -- t`
+# 	# trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -77,13 +74,11 @@
 	required = true
 
 [branch]
-
 	# Show most recently changed branches first.
 	sort = -committerdate
 
 [core]
 	excludesfile = ~/.gitignore
-
 	# Let the `$EDITOR` decides that.
 	# editor = code --wait
 

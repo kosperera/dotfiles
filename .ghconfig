@@ -1,0 +1,107 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: https
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor:
+# When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
+prompt: enabled
+# A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
+pager:
+
+# Aliases allow you to create nicknames for gh commands
+# Read more at https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
+aliases:
+    # List all the aliases defined below.
+    # gh a
+    a: alias list
+
+    # Shows the current username ans the auth info.
+    # gh whoami
+    whoami: |-
+      !
+      echo 'Git CLI is configured to use:'
+      git whoami
+
+      echo
+      gh auth status -t
+
+    # Forks a repo in GitHub.com and then clones it.
+    # gh f alertbox/zebra-snooze
+    f: repo fork "$1" --clone
+
+    # Clones a repo from GitHub.com or from an HTTP path.
+    # gh c zebra-snooze
+    # gh c https://github.com/alertbox/zebra-snooze
+    c: repo clone
+
+    # Shows the current status of the repo.
+    # gh s
+    s: '!git s'
+    # Shows configured remotes.
+    # gh r
+    r: '!git r'
+    # Shows all the local and remote branches.
+    # gh br
+    br: '!git br'
+    # Shows the situation report of the repo.
+    # gh sr
+    sr: |-
+      !
+      echo 'Remotes Configured:'
+      gh r
+
+      echo 'Branch(es):'
+      gh br
+
+      echo 'Latest Activities:'
+      git l10
+
+      echo 'Current Status:'
+      gh s
+
+    # Switches to the provided branch.
+    # gh sw feat-43-upgrades
+    sw: '!git sw "$1"'
+    # Creates a new branch with changes merged if any.
+    # gh b fubar
+    b: '!git b "$1"'
+    # Deteles a given local branch.
+    # gh del feat-43-upgrades
+    del: '!git del "$1"'
+
+    # Pulls latest changes from the default remote and sub-modules if any.
+    # gh p
+    p: '!git p'
+
+    # Commits all changes with a given commit message.
+    # gh cm 'chore: initial commit'
+    cm: '!git cm "$1"'
+
+    # Pushes all the commits to the remote.
+    # gh ps
+    ps: '!git ps'
+
+    # Resets everything to its upstream default branch.
+    # NOTE: Recommended when forking the default branch instead of trunk-based development.
+    #       Use `git yolo`` for trunk-based development.
+    # gh yolo
+    yolo: |-
+      !
+      git fetch upstream --force
+      git reset FETCH_HEAD --hard
+      git clean -df
+      git ps --force
+
+    # Creates a new private repo in GitHub.com.
+    # gh cr repo-named-snafu
+    cr: repo create "$1" -y --enable-wiki=false --private
+
+    # gh this repo-named-snafu
+    this: |-
+      !
+      git this
+      gh cr "$1"
+
+    # gh purge
+    # purge: '! git purge'
+    # gh trash
+    # trash: '! git trash'

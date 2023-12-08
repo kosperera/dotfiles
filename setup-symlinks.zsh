@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Symlink .dotfiles into HOME
 # Symlink instead of replacing.
 # ln -s <source> <destination>
@@ -8,7 +10,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # GitHub is special
 mkdir -p ~/.config/gh
-rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.gh ~/.config/gh/config.yml
+rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.ghconfig ~/.config/gh/config.yml
 
 # Symlink the rest.
 for file in .{zshrc-prompt,zshrc,gitconfig,gitignore,npmrc,nvmrc}; do

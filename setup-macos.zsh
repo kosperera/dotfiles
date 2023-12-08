@@ -1,4 +1,7 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+
+# Settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
 
 #
 # General UI/UX

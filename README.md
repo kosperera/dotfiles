@@ -45,19 +45,21 @@ This repo includes a shell script for executing the bulk of the configuration I 
    - Microsoft OneDrive.
    - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or [Rancher Desktop](https://docs.rancherdesktop.io/getting-started/installation/#macos)) for Devcontainers.
 
-5. Configure macOS and the Terminal.app to be smarter.
+5. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
+
+6. Configure macOS and the Terminal.app to be smarter.
 
    ```bash
    source ~/.dotfiles/setup-macos.zsh
    ```
 
-6. Create (or recreate) symlinks for .dotfiles.
+7. Create (or recreate) symlinks for .dotfiles.
 
    ```bash
    source ~/.dotfiles/setup-symlinks.zsh
    ```
 
-7. Configure VS Code default settings, profiles, extensions et al.
+8. Configure VS Code default settings, profiles, extensions et al.
 
 
 
@@ -65,8 +67,8 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 - `dc` is the alias for `docker compose`. Try `dc h` to show the list of supported commands.
 - `sql` is the alias for a dead simple SQL Server running on docker. Try `sql h` to show the list of supported commands.
-- `git a` and `gh a` are aliases to list all the aliases.
-- `serve` is a short hand command to run a dead simple web server from the current folder. Try `serve 4239` to see it in action.
+- `gh a` and `git a` are aliases to list all their aliases.
+- `serve` is a short hand command to run a dead simple web server from the current folder. Try `serve 4321` to see it in action.
 - `yolo` is to upgrade *Every Effin Thingy*.
 
 
@@ -81,6 +83,7 @@ Yep, it works on my machine and hopefully it does on your's as well but please d
 
 Many of the customizations are taken from:
 
+- [@kentcdodds/dotfiles](https://github.com/kentcdodds/dotfiles)
 - [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), and
 - [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles)
 

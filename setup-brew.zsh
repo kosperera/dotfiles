@@ -1,29 +1,54 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+
+# First, make sure to install Homebrew from https://brew.sh
+# or download from https://github.com/Homebrew/brew/releases
+
+# Run without downloading:
+# curl https://raw.githubusercontent.com/kosalanuwan/dotfiles/HEAD/setup-brew.zsh | zsh
+# Close any open System Preferences panes, to prevent them from overriding
+
+# Settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+# Ask for the administrator password upfront
+sudo -v
+# Keep-alive: update existing `sudo` time stamp until `setup-*` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Make sure we’re using the latest Homebrew.
 brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-brew tap homebrew/cask-versions
-brew tap microsoft/git
+brew tap homebrew/cask-versions \
+         microsoft/git
 
-# Install CLI tools
+# Install Git tools
 # Uncomment if not installed via XCode
-brew install git
-brew install git-lfs
-brew install gh
+echo "Installing git tools"
+brew install git \
+             git-lfs \
+             gh
 
-# Uncomment install locally, use devcontainers otherwise.
-# brew install nvm
-# brew install yarn
+# Inatall Node and the like locally, otherwise, use a devcontainer.
+# Learn more at https://www.youtube.com/watch?v=b1RavPr_878
+echo "Installing NVM and Yarn"
+brew install nvm \
+             yarn
 
-brew install --cask git-credential-manager-core
-brew install --cask docker
-brew install safari-technology-preview
-brew install firefox-developer-edition
-brew install figma
-brew install visual-studio-code
+echo "nvm --version: $(nvm --version)"
+echo "yarn --version: $(yarn --version)"
+
+echo "Installing a few apps with brew --cask"
+brew install --cask git-credential-manager-core \
+                    docker \
+                    discord \
+                    zoom
+
+echo "Installing web browsers and a few apps"
+brew install safari-technology-preview \
+             firefox-developer-edition \
+             figma \
+             visual-studio-code
 
 # Remove outdated versions from the cellar.
 brew cleanup

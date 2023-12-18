@@ -14,14 +14,12 @@ precmd () {
 }
 
 # Executed whenever the current working directory is changed
+# See https://zsh.sourceforge.io/Doc/Release/Functions.html#Hook-Functions
 chpwd () {
   # Install node using nvm when .nvmrc config file exists in a directory
+  # Simplified version of https://github.com/nvm-sh/nvm#zsh
   if [ -f .nvmrc ]; then
-    echo "· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
-    echo ""
     nvm use
-    echo ""
-    echo "· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
   fi;
 }
 

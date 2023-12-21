@@ -42,13 +42,14 @@ echo "Installing a few apps with brew --cask"
 brew install --cask git-credential-manager-core \
                     docker \
                     discord \
-                    zoom
+                    zoom \
+                    inkscape
 
 echo "Installing web browsers and a few apps"
 brew install safari-technology-preview \
              firefox-developer-edition \
-             figma \
-             visual-studio-code
+             visual-studio-code \
+             figma
 
 # Remove outdated versions from the cellar.
 brew cleanup

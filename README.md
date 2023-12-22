@@ -41,9 +41,9 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 4. Download the rest of the apps from Apple App Store or otherwise.
 
-   - [Typora](https://typora.io) for Markdown.
-   - Microsoft OneDrive.
-   - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or [Rancher Desktop](https://docs.rancherdesktop.io/getting-started/installation/#macos)) for Devcontainers.
+   - Microsoft Office
+   - Microsoft OneDrive, and
+   - Twitter (or X or whatever)
 
 5. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
 
@@ -69,7 +69,7 @@ This repo includes a shell script for executing the bulk of the configuration I 
 - `sql` is the alias for a dead simple SQL Server running on docker. Try `sql h` to show the list of supported commands.
 - `gh a` and `git a` are aliases to list all their aliases.
 - `serve` is a short hand command to run a dead simple web server from the current folder. Try `serve 4321` to see it in action.
-- `yolo` is to upgrade *Every Effin Thingy*.
+- `yolo` is to upgrade *Every Thuckin' Thing!*.
 
 
 

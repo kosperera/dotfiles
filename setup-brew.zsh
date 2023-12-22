@@ -22,6 +22,11 @@ brew upgrade
 brew tap homebrew/homebrew-cask-versions \
          microsoft/git
 
+# Install Web Browsers
+echo "Installing a few web browsers"
+brew install --cask firefox-developer-edition \
+                    safari-technology-preview
+
 # Install Git tools
 # Uncomment if not installed via XCode
 echo "Installing git tools"
@@ -32,31 +37,31 @@ brew install git \
 echo "git --version: $(git --version)"
 echo "gh --version: $(gh --version)"
 
-# Inatall Node and the like locally, otherwise, use a devcontainer.
+# Inatall Node ecosystem locally, otherwise, use a dev container.
 # Learn more at https://www.youtube.com/watch?v=b1RavPr_878
-echo "Installing NVM and Yarn"
-brew install nvm \
-             yarn \
-             pnpm
+echo "Installing NVM and a few CLI tools"
+# brew install nvm \
+#              yarn \
+#              pnpm
 
-echo "nvm --version: $(nvm --version)"
-echo "yarn --version: $(yarn --version)"
-echo "pnpm --version: $(pnpm --version)"
+# echo "nvm --version: $(nvm --version)"
+# echo "yarn --version: $(yarn --version)"
+# echo "pnpm --version: $(pnpm --version)"
 
-echo "Installing web browsers and a few apps with brew --cask"
-brew install --cask safari-technology-preview \
-                    firefox-developer-edition \
-                    git-credential-manager-core \
+# Replace docker with rancher for ent/professional use.
+# See https://www.docker.com/blog/updating-product-subscriptions/
+echo "Installing a few apps with brew --cask"
+brew install --cask git-credential-manager \
                     docker \
+                    visual-studio-code \
+                    homebrew/cask-versions/typora-dev \
+                    figma \
+                    inkscape \
                     discord \
-                    zoom \
-                    inkscape
+                    zoom
 
 echo "docker --version: $(docker --version)"
-
-echo "Installing web browsers and a few apps"
-brew install visual-studio-code \
-             figma
+echo "code --version: $(code --version)"
 
 # Remove outdated versions from the cellar.
 brew cleanup

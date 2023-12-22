@@ -33,7 +33,8 @@ brew install git \
 # Learn more at https://www.youtube.com/watch?v=b1RavPr_878
 echo "Installing NVM and Yarn"
 brew install nvm \
-             yarn
+             yarn \
+             pnpm
 
 echo "nvm --version: $(nvm --version)"
 echo "yarn --version: $(yarn --version)"

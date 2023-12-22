@@ -19,7 +19,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-brew tap homebrew/cask-versions \
+brew tap homebrew/homebrew-cask-versions \
          microsoft/git
 
 # Install Git tools
@@ -28,6 +28,9 @@ echo "Installing git tools"
 brew install git \
              git-lfs \
              gh
+
+echo "git --version: $(git --version)"
+echo "gh --version: $(gh --version)"
 
 # Inatall Node and the like locally, otherwise, use a devcontainer.
 # Learn more at https://www.youtube.com/watch?v=b1RavPr_878
@@ -38,18 +41,21 @@ brew install nvm \
 
 echo "nvm --version: $(nvm --version)"
 echo "yarn --version: $(yarn --version)"
+echo "pnpm --version: $(pnpm --version)"
 
-echo "Installing a few apps with brew --cask"
-brew install --cask git-credential-manager-core \
+echo "Installing web browsers and a few apps with brew --cask"
+brew install --cask safari-technology-preview \
+                    firefox-developer-edition \
+                    git-credential-manager-core \
                     docker \
                     discord \
                     zoom \
                     inkscape
 
+echo "docker --version: $(docker --version)"
+
 echo "Installing web browsers and a few apps"
-brew install safari-technology-preview \
-             firefox-developer-edition \
-             visual-studio-code \
+brew install visual-studio-code \
              figma
 
 # Remove outdated versions from the cellar.

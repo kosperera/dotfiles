@@ -19,46 +19,36 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-brew tap homebrew/homebrew-cask-versions \
-         microsoft/git
+brew tap homebrew/homebrew-cask-versions
+brew tap microsoft/git
 
-# Install Web Browsers
+# Install a few web browsers
 echo "Installing a few web browsers"
-brew install --cask firefox-developer-edition \
-                    safari-technology-preview
+brew install --cask firefox-developer-edition
+brew install --cask safari-technology-preview
 
-# Install Git tools
-# Uncomment if not installed via XCode
+# Install git tools
+# Uncomment if not installed via xcode
 echo "Installing git tools"
-brew install git \
-             git-lfs \
-             gh
+brew install git
+brew install git-lfs
+brew install --cask git-credential-manager
+brew install gh
 
 echo "git --version: $(git --version)"
 echo "gh --version: $(gh --version)"
 
-# Inatall Node ecosystem locally, otherwise, use a dev container.
-# Learn more at https://www.youtube.com/watch?v=b1RavPr_878
-echo "Installing NVM and a few CLI tools"
-# brew install nvm \
-#              yarn \
-#              pnpm
-
-# echo "nvm --version: $(nvm --version)"
-# echo "yarn --version: $(yarn --version)"
-# echo "pnpm --version: $(pnpm --version)"
-
 # Replace docker with rancher for ent/professional use.
 # See https://www.docker.com/blog/updating-product-subscriptions/
 echo "Installing a few apps with brew --cask"
-brew install --cask git-credential-manager \
-                    docker \
-                    visual-studio-code \
-                    homebrew/cask-versions/typora-dev \
-                    figma \
-                    inkscape \
-                    discord \
-                    zoom
+# brew install --cask docker
+brew install --cask rancher
+brew install --cask visual-studio-code
+brew install --cask homebrew/cask-versions/typora-dev
+brew install --cask figma
+brew install --cask inkscape
+brew install --cask discord
+brew install --cask zoom
 
 echo "docker --version: $(docker --version)"
 echo "code --version: $(code --version)"

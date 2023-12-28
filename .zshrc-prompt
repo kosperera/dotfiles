@@ -19,7 +19,7 @@ chpwd () {
   # Install node using nvm when .nvmrc config file exists in a directory
   # Simplified version of https://github.com/nvm-sh/nvm#zsh
   if [ -f .nvmrc ]; then
-    nvm use
+    pnpm env use --global $(cat ~/.nvmrc)
   fi;
 }
 
@@ -45,7 +45,6 @@ zstyle ':vcs_info:git:*' formats "%F{yellow}%r → %b%F{242}%u%c%m%f%f "
   then
     hook_com[misc]='%F{242} (untracked)%f'
   fi
-
 }
 
 prompt() {
@@ -55,9 +54,6 @@ prompt() {
     echo '%F{yellow}%3~%f '
   fi;
 }
-
-# PROMPT='$(prompt)'
-# RPROMPT='%F{242}%n, %*%f'
 
 PROMPT='%U%F{4}%~%f%u '
 RPROMPT='${vcs_info_msg_0_}'

@@ -41,8 +41,8 @@ echo "gh --version: $(gh --version)"
 # Replace docker with rancher for ent/professional use.
 # See https://www.docker.com/blog/updating-product-subscriptions/
 echo "Installing a few apps with brew --cask"
-# brew install --cask docker
-brew install --cask rancher
+brew install --cask docker
+# brew install --cask rancher
 brew install --cask visual-studio-code
 brew install --cask homebrew/cask-versions/typora-dev
 brew install --cask figma

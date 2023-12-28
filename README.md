@@ -14,9 +14,9 @@ This repo includes a shell script for executing the bulk of the configuration I 
 | `.zshrc`            | Customizes the default shell to be smarter.                  |
 | `.gh`               | Global GitHub CLI configuration to specify shortcuts and helper functions. |
 | `.gitconfig`        | Global Git configuration to specify my name and email, shortcuts, colors, and more. |
-| `.gitignore`        | Global Git ignores from [@github/gitignore](https://github.com/github/gitignore) that I use everywhere. |
-| `.npmrc`            | Global NPM and Yarn configurations.                          |
-| `.nvmrc`            | Global Node Version Manager configurations.                  |
+| `.gitignore`        | Global ignores from [@github/gitignore](https://github.com/github/gitignore) that I use everywhere. |
+| `.npmrc`            | Default configurations for Node Package Management tools like `npm`, `yarn`, `pnpm` etc. |
+| `.nvmrc`            | Default configurations for Node Version Manager.             |
 | `.sql-server`       | Configure Azure SQL to run locally for my .NET [Database Projects](https://www.youtube.com/watch?v=I6T9OA9YBGg). |
 
 
@@ -33,33 +33,40 @@ This repo includes a shell script for executing the bulk of the configuration I 
    git clone https://github.com/kosalanuwan/dotfiles ~/.dotfiles
    ```
 
-3. Then, update, upgrade, and install core tools and the stuff via `brew`.
-
-   ```bash
-   source ~/.dotfiles/setup-brew.zsh
-   ```
-
-4. Download the rest of the apps from Apple App Store or otherwise.
-
-   - Microsoft Office
-   - Microsoft OneDrive, and
-   - Twitter (or X or whatever)
-
-5. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
-
-6. Configure macOS and the Terminal.app to be smarter.
-
-   ```bash
-   source ~/.dotfiles/setup-macos.zsh
-   ```
-
-7. Create (or recreate) symlinks for .dotfiles.
+3. Create (or recreate) symlinks for .dotfiles.
 
    ```bash
    source ~/.dotfiles/setup-symlinks.zsh
    ```
 
-8. Configure VS Code default settings, profiles, extensions et al.
+4. Then, update, upgrade, and install core tools and the stuff via `brew`.
+
+   ```bash
+   source ~/.dotfiles/setup-brew.zsh
+   ```
+
+5. Install Node and a few CLI tools locally, use a dev container otherwise (Recommended).
+
+   ```bash
+   source ~/.dotfiles/setup-node.zsh
+   ```
+
+6. Download the rest of the apps from Apple App Store or otherwise.
+
+   - Microsoft Office
+   - Microsoft OneDrive, and
+   - Twitter (or X or whatever)
+
+7. Configure macOS and the Terminal.app to be smarter.
+
+   ```bash
+   source ~/.dotfiles/setup-macos.zsh
+   ```
+
+8. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
+
+9. Sign in to VS Code and sync settings, profiles, extensions et al.
+
 
 
 

@@ -28,24 +28,31 @@
 	# git l10
 	l10 = log --pretty=oneline -n 10 --graph --abbrev-commit
 
-	# Short-hand for 'git switch'.
-	# git sw feat-43-upgrades
-	sw = !git fetch --all -q && git switch "$1"
+	# Short-hand for 'git fetch & switch'.
+	# Example: git sw feat-43-upgrades
+	sw = !"f() { \
+	git fetch --all -q \"$@\"; \
+	git switch \"$1\"; \
+	}; f \"$@\""
+
 	# Creates a new branch with changes merged if any.
-	# git b fubar
+	# Example: git b fubar
 	b = switch --merge --create
 	# Deletes a given local branch.
-	# git del feat-43-upgrades
+	# Example: git del feat-43-upgrades
     del = branch -d
 
 	# Pulls latest changes from the default remote and sub-modules if any.
-	# git p
-	# git p --force
+	# Example: git p
+	# Example: git p --force
 	p = pull --recurse-submodules
 
 	# Commits all changes with a given commit message.
-	# git cm 'chore: initial commit'
-	cm = !git add -A && git commit -m "$1"
+	# Example: git cm 'chore: initial commit'
+	cm = !"f() { \
+	git add -A; \
+	git commit -m \"$@\"; \
+	}; f \"$@\""
 
 	# Short-hand for 'git push'.
 	# git ps

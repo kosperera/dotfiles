@@ -4,6 +4,7 @@
 
 # Aliases allow you to create nicknames for git commands
 # Read more at https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
+# Awesome list of Git Aliases at https://www.gitalias.com
 [alias]
 	# Lists all the aliases defined below.
 	# git a

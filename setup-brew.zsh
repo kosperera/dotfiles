@@ -41,17 +41,22 @@ echo "gh --version: $(gh --version)"
 # Replace docker with rancher for ent/professional use.
 # See https://www.docker.com/blog/updating-product-subscriptions/
 echo "Installing a few apps with brew --cask"
-brew install --cask docker
+brew install --cask podman-desktop
+# brew install --cask docker
 # brew install --cask rancher
 brew install --cask visual-studio-code
 brew install --cask homebrew/cask-versions/typora-dev
+brew install --cask canva
+brew install --cask zed
 brew install --cask figma
 brew install --cask inkscape
 brew install --cask discord
 brew install --cask zoom
 
-echo "docker --version: $(docker --version)"
+# echo "docker --version: $(docker --version)"
+echo "podman --version: $(podman --version)"
 echo "code --version: $(code --version)"
+echo "zed --version: $(zed --version)"
 
 # Remove outdated versions from the cellar.
 brew cleanup

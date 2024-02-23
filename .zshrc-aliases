@@ -2,7 +2,7 @@
 
 # utility shortcuts improved
 # Unknown command: cask https://stackoverflow.com/a/45116705
-alias yolo="brew update && brew upgrade && brew outdated --cask && brew upgrade --cask --greedy" # upgrade every-fuckin-thing
+alias yolo="brew update && brew upgrade && brew outdated --cask && brew upgrade --cask --greedy && brew cleanup" # upgrade every-fuckin-thing
 
 alias reload='. ~/.zshrc'                   # Reload the zshrc
 

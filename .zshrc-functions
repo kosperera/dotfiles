@@ -76,56 +76,56 @@ serve() {
 }
 
 # Tierd of typing docker compose?
-dc() {
-    if [ -n $1 ] ; then
-      case $1 in
-        ll | list)
+# doc() {
+#     if [ -n $1 ] ; then
+#       case $1 in
+#         ll | list)
 
-          echo -e "\nList of all the containers"
-          docker ps --all --size
+#           echo -e "\nList of all the containers"
+#           docker ps --all --size
           
-          echo -e "\nList of all the images"
-          docker images --all
-          ;;
+#           echo -e "\nList of all the images"
+#           docker images --all
+#           ;;
 
-        up)           docker compose ${@:2} up --build -d --quiet-pull ;;
-        stop | st)    docker compose ${@:2} stop ;;
-        restart | rs) docker compose ${@:2} restart ;;
-        down | d)     docker compose ${@:2} down --rmi "all" -v --remove-orphans ;;
-        clean | c)    # remove all exited containers and dangling images.
+#         up)           docker compose ${@:2} up --build -d --quiet-pull ;;
+#         stop | st)    docker compose ${@:2} stop ;;
+#         restart | rs) docker compose ${@:2} restart ;;
+#         down | d)     docker compose ${@:2} down --rmi "all" -v --remove-orphans ;;
+#         clean | c)    # remove all exited containers and dangling images.
 
-          local containers=$(docker ps --all -q -f status=exited)
-          [ ! -z $containers ] && docker rm $containers || echo "No exited containers found."
+#           local containers=$(docker ps --all -q -f status=exited)
+#           [ ! -z $containers ] && docker rm $containers || echo "No exited containers found."
           
-          local images=$(docker images -q -f dangling=true)
-          [ ! -z $images ] && docker rmi $images || echo "No dangling images found."
-          ;;
+#           local images=$(docker images -q -f dangling=true)
+#           [ ! -z $images ] && docker rmi $images || echo "No dangling images found."
+#           ;;
 
-        purge)        docker system prune -a -f --volumes ;;
-        sql)          sql ${@:2} ;;
-        help | h)
-          echo -e ""
-          echo -e "Tierd of typing `docker compose`?"
-          echo -e ""
-          echo -e "dc h  | help     : List all dc commands and aliases"
-          echo -e "dc ll | list     : List all containers and images"
-          echo -e "dc up            : Spin up a container, optionally pass config file path"
-          echo -e "dc rs | restart  : Restart a running or hanging server, optionally pass config file path"
-          echo -e "dc st | stop     : Stop a running container, optionally pass config file path"
-          echo -e "dc d  | down     : Shutdown a running or hanging container, then remove all images and orphans, optionally pass config file path"
-          echo -e "dc c  | clean    : Remove all existed containers and dangling images"
-          echo -e "dc purge         : Remove everything, including volumes"
-          echo -e "dc sql           : Spin up a sql server in a container"
-          echo -e "dc *             : Short hand for 'docker compose'"
-          echo -e ""
-          ;;
+#         purge)        docker system prune -a -f --volumes ;;
+#         sql)          sql ${@:2} ;;
+#         help | h)
+#           echo -e ""
+#           echo -e "Tierd of typing `docker compose`?"
+#           echo -e ""
+#           echo -e "doc h  | help     : List all dc commands and aliases"
+#           echo -e "doc ll | list     : List all containers and images"
+#           echo -e "doc up            : Spin up a container, optionally pass config file path"
+#           echo -e "doc rs | restart  : Restart a running or hanging server, optionally pass config file path"
+#           echo -e "doc st | stop     : Stop a running container, optionally pass config file path"
+#           echo -e "doc d  | down     : Shutdown a running or hanging container, then remove all images and orphans, optionally pass config file path"
+#           echo -e "doc c  | clean    : Remove all existed containers and dangling images"
+#           echo -e "doc purge         : Remove everything, including volumes"
+#           echo -e "doc sql           : Spin up a sql server in a container"
+#           echo -e "doc *             : Short hand for 'docker compose'"
+#           echo -e ""
+#           ;;
 
-        *)            docker compose $* ;;
-      esac
-    else
-      echo "dc '$1' is not a valid command"
-    fi
-}
+#         *)            docker compose $* ;;
+#       esac
+#     else
+#       echo "doc '$1' is not a valid command"
+#     fi
+# }
 
 # Dead simple sql server running on docker
 # compose file is .sql-server

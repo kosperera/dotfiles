@@ -23,4 +23,4 @@ echo "node --version: $(node --version)"
 
 # Install a few CLI tools.
 brew install yarn
-brew install pnpm
+# brew install pnpm

@@ -8,9 +8,12 @@
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# GitHub is special
+# GitHub is special.
 mkdir -p ~/.config/gh
-rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.ghconfig ~/.config/gh/config.yml
+rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.gh.c.yml ~/.config/gh/config.yml
+# Zed is too new to sync.
+mkdir -p ~/.config/zed
+rm -rf ~/.config/zed/settings.json && ln -s ~/.dotfiles/.zed.s.json ~/.config/zed/settings.json
 
 # Symlink the rest.
 for file in .{zshrc-prompt,zshrc,gitconfig,gitignore,npmrc,nvmrc}; do

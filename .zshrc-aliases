@@ -1,4 +1,6 @@
 # Set personal aliases
+alias doc=podman
+alias dc='podman compose'
 
 # utility shortcuts improved
 # Unknown command: cask https://stackoverflow.com/a/45116705
@@ -51,10 +53,3 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 # Why your mac is so slow?
 alias top="top -o vsize"
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
-
-# Too lazy.
-alias doc=docker
-alias dc='doc compose'
-alias pod=podman
-alias pc='pod compose'
-alias pn=pnpm

@@ -8,6 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   // "buffer_font_family": "Menlo",
+  "theme": "Xcode Dark",
   "code_actions_on_format": {
     "source.organizeImports": true
   },

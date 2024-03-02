@@ -54,14 +54,14 @@ echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code
 brew install --cask homebrew/cask-versions/typora-dev
 brew install --cask canva
-brew install --cask zed
+# brew install --cask zed
 brew install --cask figma
 brew install --cask inkscape
 brew install --cask discord
 brew install --cask zoom
 
 echo "code --version: $(code --version)"
-echo "zed --version: $(zed --version)"
+# echo "zed --version: $(zed --version)"
 
 # Remove outdated versions from the cellar.
 brew cleanup

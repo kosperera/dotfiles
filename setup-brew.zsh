@@ -19,7 +19,12 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-brew tap homebrew/homebrew-cask-versions
+# Install a few Terminal stuff.
+brew install typewritten
+
+# For alternative versions of casks https://github.com/Homebrew/homebrew-cask-versions
+# brew tap homebrew/homebrew-cask-versions
+brew tap homebrew/cask-versions
 brew tap microsoft/git
 
 # Install a few web browsers

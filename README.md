@@ -25,47 +25,49 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 > **WARNING :bangbang:** Make sure you know what you are doing and use at your own risk!
 
-1. First, download and install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
+1. First, install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
 
-2. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
+2. Then, install [Oh My Zsh](https://ohmyz.sh/#install).
+
+3. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
 
    ```bash
    git clone https://github.com/kosalanuwan/dotfiles ~/.dotfiles
    ```
 
-3. Create (or recreate) symlinks for .dotfiles.
+4. Create (or recreate) symlinks for .dotfiles.
 
    ```bash
    source ~/.dotfiles/setup-symlinks.zsh
    ```
 
-4. Then, update, upgrade, and install core tools and the stuff via `brew`.
+5. Then, update, upgrade, and install core tools and the stuff via `brew`.
 
    ```bash
    source ~/.dotfiles/setup-brew.zsh
    ```
 
-5. Install Node and a few CLI tools locally, use a dev container otherwise (Recommended).
+6. Install Node and a few CLI tools locally, use a dev container otherwise (Recommended).
 
    ```bash
    source ~/.dotfiles/setup-node.zsh
    ```
 
-6. Download the rest of the apps from Apple App Store or otherwise.
+7. Download the rest of the apps from Apple App Store or otherwise.
 
    - Microsoft Office
    - Microsoft OneDrive, and
    - Twitter (or X or whatever)
 
-7. Configure macOS and the Terminal.app to be smarter.
+8. Configure macOS and the Terminal.app to be smarter.
 
    ```bash
    source ~/.dotfiles/setup-macos.zsh
    ```
 
-8. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
+9. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
 
-9. Sign in to VS Code and sync settings, profiles, extensions et al.
+10. Sign in to VS Code and sync settings, profiles, extensions et al.
 
 
 

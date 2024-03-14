@@ -2,10 +2,9 @@
 cd () { builtin cd "$@"; ll; }
 
 # mcd: Makes new Dir and jumps inside
-md () { mkdir -p "$1" }
-mcd () { md "$1" && cd "$1"; }
+mcd () { md "$1"; cd "$1"; }
 
-rd () { rm -rf "$1"; ll; }
+rd () { command rm -rf "$1"; ll; }
 
 # trash: Moves a file to the MacOS trash        
 trash () { command mv "$@" ~/.Trash ; }

@@ -10,7 +10,7 @@ alias reload='. ~/.zshrc'                   # Reload the zshrc
 
 alias cp='cp -riv'                          # Copy recursivve, safe, and verbose
 alias mv='mv -iv'                           # Move safe and verbose
-alias mkdir='mkdir -vp'                     # Make directory
+alias md='mkdir -vp'                        # Make directory
 alias ll='ls -FGlAhp'                       # Show all including hidden files, folders, etc.
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 

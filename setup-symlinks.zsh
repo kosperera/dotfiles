@@ -12,8 +12,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 mkdir -p ~/.config/gh
 rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.gh.c.yml ~/.config/gh/config.yml
 # Zed is too new to sync.
-mkdir -p ~/.config/zed
-rm -rf ~/.config/zed/settings.json && ln -s ~/.dotfiles/.zed.s.json ~/.config/zed/settings.json
+# mkdir -p ~/.config/zed
+# rm -rf ~/.config/zed/settings.json && ln -s ~/.dotfiles/.zed.s.json ~/.config/zed/settings.json
 
 # Symlink the rest.
 for file in .{zshrc-prompt,zshrc,gitconfig,gitignore,npmrc,nvmrc}; do

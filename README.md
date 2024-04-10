@@ -47,25 +47,21 @@ This repo includes a shell script for executing the bulk of the configuration I 
    source ~/.dotfiles/setup-brew.zsh
    ```
 
-6. Install Node and a few CLI tools locally, use a dev container otherwise (Recommended).
-
-   ```bash
-   source ~/.dotfiles/setup-node.zsh
-   ```
-
-7. Download the rest of the apps from Apple App Store or otherwise.
+6. Download the rest of the apps from Apple App Store or otherwise.
 
    - Microsoft Office
    - Microsoft OneDrive, and
    - Twitter (or X or whatever)
 
-8. Configure macOS and the Terminal.app to be smarter.
+7. Configure macOS and the Terminal.app to be smarter.
 
    ```bash
    source ~/.dotfiles/setup-macos.zsh
    ```
 
-9. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
+8. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
+
+9. Import Typora.app theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
 
 10. Sign in to VS Code and sync settings, profiles, extensions et al.
 

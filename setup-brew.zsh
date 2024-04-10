@@ -30,7 +30,8 @@ brew tap microsoft/git
 # Install a few web browsers
 echo "Installing a few web browsers"
 brew install --cask firefox-developer-edition
-brew install --cask safari-technology-preview
+# brew install --cask safari-technology-preview
+brew install --cask arc
 
 # Install git tools
 # Uncomment if not installed via xcode

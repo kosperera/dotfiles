@@ -55,6 +55,7 @@ brew install --cask docker
 echo "docker --version: $(docker --version)"
 echo "podman --version: $(podman --version)"
 echo "podman compose --version: $(podman compose --version)"
+echo "docker compose version: $(docker compose version)"
 
 echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code

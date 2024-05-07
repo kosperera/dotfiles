@@ -51,7 +51,6 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
    - Microsoft Office
    - Microsoft OneDrive, and
-   - Twitter (or X or whatever)
 
 7. Configure macOS and the Terminal.app to be smarter.
 
@@ -65,12 +64,18 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 10. Sign in to VS Code and sync settings, profiles, extensions et al.
 
+11. Setup a VM for the Devcontainers.
+    ```bash
+    pm machine init
+    pm machine start
+    ```
+
 
 
 
 ## Useful Commands / Aliases
 
-- `dc` is the alias for `docker compose`. Try `dc h` to show the list of supported commands.
+- `dcc` is the alias for `docker compose`. Try `dc h` to show the list of supported commands.
 - `sql` is the alias for a dead simple SQL Server running on docker. Try `sql h` to show the list of supported commands.
 - `gh a` and `git a` are aliases to list all their aliases.
 - `serve` is a short hand command to run a dead simple web server from the current folder. Try `serve 4321` to see it in action.

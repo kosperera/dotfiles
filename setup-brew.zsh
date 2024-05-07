@@ -29,7 +29,7 @@ brew tap microsoft/git
 
 # Install a few web browsers
 echo "Installing a few web browsers"
-brew install --cask firefox-developer-edition
+# brew install --cask firefox-developer-edition
 # brew install --cask safari-technology-preview
 brew install --cask arc
 
@@ -58,7 +58,7 @@ echo "podman compose --version: $(podman compose --version)"
 
 echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code
-brew install --cask homebrew/cask-versions/typora-dev
+brew install --cask typora@dev
 brew install --cask canva
 # brew install --cask zed
 brew install --cask figma

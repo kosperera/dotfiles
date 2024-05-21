@@ -22,11 +22,6 @@ brew upgrade
 # Install a few Terminal stuff.
 brew install typewritten
 
-# For alternative versions of casks https://github.com/Homebrew/homebrew-cask-versions
-# brew tap homebrew/homebrew-cask-versions
-brew tap homebrew/cask-versions
-# brew tap microsoft/git
-
 # Install a few web browsers
 echo "Installing a few web browsers"
 # brew install --cask firefox-developer-edition
@@ -36,6 +31,7 @@ echo "Installing a few web browsers"
 # Install git tools
 # Uncomment if not installed via xcode
 echo "Installing git tools"
+# brew tap microsoft/git
 # brew install git
 # brew install git-lfs
 brew install --cask git-credential-manager

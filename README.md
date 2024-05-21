@@ -25,11 +25,13 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 > **WARNING :bangbang:** Make sure you know what you are doing and use at your own risk!
 
-1. First, install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
+1. First, run `xcode-select --install` to enable Command Line Tools.
 
 2. Then, install [Oh My Zsh](https://ohmyz.sh/#install).
 
-3. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
+3. And, install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
+
+4. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
 
    ```bash
    git clone https://github.com/kosalanuwan/dotfiles ~/.dotfiles

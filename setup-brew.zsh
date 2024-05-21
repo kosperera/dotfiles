@@ -25,19 +25,19 @@ brew install typewritten
 # For alternative versions of casks https://github.com/Homebrew/homebrew-cask-versions
 # brew tap homebrew/homebrew-cask-versions
 brew tap homebrew/cask-versions
-brew tap microsoft/git
+# brew tap microsoft/git
 
 # Install a few web browsers
 echo "Installing a few web browsers"
 # brew install --cask firefox-developer-edition
 # brew install --cask safari-technology-preview
-brew install --cask arc
+# brew install --cask arc
 
 # Install git tools
 # Uncomment if not installed via xcode
 echo "Installing git tools"
-brew install git
-brew install git-lfs
+# brew install git
+# brew install git-lfs
 brew install --cask git-credential-manager
 brew install gh
 
@@ -50,12 +50,12 @@ echo "Installing container tools"
 # brew install --cask podman-desktop
 brew install podman
 # brew install podman-compose
-brew install --cask docker
+# brew install --cask docker
 
-echo "docker --version: $(docker --version)"
+# echo "docker --version: $(docker --version)"
 echo "podman --version: $(podman --version)"
 echo "podman compose --version: $(podman compose --version)"
-echo "docker compose version: $(docker compose version)"
+# echo "docker compose version: $(docker compose version)"
 
 echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code

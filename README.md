@@ -37,36 +37,45 @@ This repo includes a shell script for executing the bulk of the configuration I 
    git clone https://github.com/kosalanuwan/dotfiles ~/.dotfiles
    ```
 
-4. Create (or recreate) symlinks for .dotfiles.
+5. Create (or recreate) symlinks for .dotfiles.
 
    ```bash
    source ~/.dotfiles/setup-symlinks.zsh
    ```
 
-5. Then, update, upgrade, and install core tools and the stuff via `brew`.
+6. Then, update, upgrade, and install core tools and the stuff via `brew`.
 
    ```bash
    source ~/.dotfiles/setup-brew.zsh
    ```
 
-6. Download the rest of the apps from Apple App Store or otherwise.
+7. Download the rest of the apps from Apple App Store or otherwise.
 
    - Microsoft Office
    - Microsoft OneDrive, and
 
-7. Configure macOS and the Terminal.app to be smarter.
+8. Configure macOS and the Terminal.app to be smarter.
 
    ```bash
    source ~/.dotfiles/setup-macos.zsh
    ```
 
-8. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
+9. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
 
-9. Import Typora.app theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
+10. Import Typora.app theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
 
-10. Sign in to VS Code and sync settings, profiles, extensions et al.
+11. Sign in to VS Code and sync settings, profiles, extensions et al.
 
-11. Setup a VM for the Devcontainers.
+12. Sing in to `gh`.
+    ```bash
+    gh auth login
+    # What account do you want to log into? GitHub.com
+    # What is your preferred protocol for Git operations on this host? HTTPS
+    # Authenticate Git with your GitHub credentials? Yes
+    # How would you like to authenticate GitHub CLI? Login with a web browser
+    ```
+
+13. Setup a VM for the Devcontainers.
     ```bash
     pm machine init
     pm machine start

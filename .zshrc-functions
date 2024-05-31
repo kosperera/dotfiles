@@ -131,10 +131,10 @@ serve() {
 sql() {
     if [ -n $1 ] ; then
       case $1 in
-        up )          pmc -f ~/.dotfiles/.sql-server up --build -d --quiet-pull ;;
-        stop | st)    pmc -f ~/.dotfiles/.sql-server stop ;;
-        restart | rs) pmc -f ~/.dotfiles/.sql-server restart ;;
-        down | d)     pmc -f ~/.dotfiles/.sql-server down --rmi "all" -v --remove-orphans ;;
+        up )          podc -f ~/.dotfiles/.sql-server up --build -d --quiet-pull ;;
+        stop | st)    podc -f ~/.dotfiles/.sql-server stop ;;
+        restart | rs) podc -f ~/.dotfiles/.sql-server restart ;;
+        down | d)     podc -f ~/.dotfiles/.sql-server down --rmi "all" -v --remove-orphans ;;
         help | h)
           echo -e ""
           echo -e "Dead simple sql server running on docker"

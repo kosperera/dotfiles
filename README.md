@@ -27,46 +27,56 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 1. First, run `xcode-select --install` to enable Command Line Tools.
 
-2. Then, install [Oh My Zsh](https://ohmyz.sh/#install).
+2. Next, run `softwareupdate --install-rosetta` enable Rosetta 2.
 
-3. And, install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
+3. Then, install [Oh My Zsh](https://ohmyz.sh/#install).
 
-4. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
+4. And, download and install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
+
+5. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
 
    ```bash
    git clone https://github.com/kosalanuwan/dotfiles ~/.dotfiles
    ```
 
-5. Create (or recreate) symlinks for .dotfiles.
+6. Create (or recreate) symlinks for .dotfiles.
 
    ```bash
    source ~/.dotfiles/setup-symlinks.zsh
    ```
 
-6. Then, update, upgrade, and install core tools and the stuff via `brew`.
+7. Then, update, upgrade, and install core tools and the stuff via `brew`.
 
    ```bash
    source ~/.dotfiles/setup-brew.zsh
    ```
 
-7. Download the rest of the apps from Apple App Store or otherwise.
+8. Next, install core tools for Java and the stuff via `sdk`.
+
+   ```bash
+   source ~/.dotfiles/setup-sdk.zsh
+   ```
+
+   > SDKMAN install script tweaks our `.zshrc` file but those `export` commands are already done in the `.zsh_exports`, so we can disregard those changes.
+
+9. Download the rest of the apps from Apple App Store or otherwise.
 
    - Microsoft Office
    - Microsoft OneDrive, and
 
-8. Configure macOS and the Terminal.app to be smarter.
+10. Configure macOS and the Terminal.app to be smarter.
 
    ```bash
    source ~/.dotfiles/setup-macos.zsh
    ```
 
-9. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
+11. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
 
-10. Import Typora.app theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
+12. Import Typora.app theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
 
-11. Sign in to VS Code and sync settings, profiles, extensions et al.
+13. Sign in to VS Code and sync settings, profiles, extensions et al.
 
-12. Sing in to `gh`.
+14. Sing in to `gh`.
     ```bash
     gh auth login
     # What account do you want to log into? GitHub.com
@@ -75,7 +85,7 @@ This repo includes a shell script for executing the bulk of the configuration I 
     # How would you like to authenticate GitHub CLI? Login with a web browser
     ```
 
-13. Setup a VM for the Devcontainers.
+15. Setup a VM for the Devcontainers.
     ```bash
     pm machine init
     pm machine start

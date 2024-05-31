@@ -64,8 +64,6 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -74,11 +72,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='code'
-else
-  export EDITOR='code'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='code'
+# else
+#   export EDITOR='code'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -92,17 +90,6 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-# Brew setup
-eval "$(/opt/homebrew/bin/brew shellenv)"
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-
 # Load additional help/utilities.
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -113,3 +100,5 @@ unset file;
 
 # ZSH auto cd
 # setopt AUTO_CD
+
+source $ZSH/oh-my-zsh.sh

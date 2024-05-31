@@ -1,8 +1,6 @@
 # Set personal aliases
-alias pm=podman
-alias pmc='podman compose'
-alias dc=docker
-alias dcc='docker compose'
+alias pod=podman
+alias podc='podman compose'
 
 # utility shortcuts improved
 # Unknown command: cask https://stackoverflow.com/a/45116705

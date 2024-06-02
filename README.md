@@ -9,6 +9,7 @@ This repo includes a shell script for executing the bulk of the configuration I 
 | File                | Description                                                  |
 | ------------------- | ------------------------------------------------------------ |
 | `setup-brew.zsh`    | Install some of the core tools I use.                        |
+| `setup-sdk.zsh`     | Install core tools for Java I use.                           |
 | `setup-macos.zsh`   | Configure macOS and the Terminal to be smarter.              |
 | `setup-symlink.zsh` | Create sim links for `~/.dotfiles/*`.                        |
 | `.zshrc`            | Customizes the default shell to be smarter.                  |
@@ -85,18 +86,12 @@ This repo includes a shell script for executing the bulk of the configuration I 
     # How would you like to authenticate GitHub CLI? Login with a web browser
     ```
 
-15. Setup a VM for the Devcontainers.
-    ```bash
-    pm machine init
-    pm machine start
-    ```
-
 
 
 
 ## Useful Commands / Aliases
 
-- `dcc` is the alias for `docker compose`. Try `dc h` to show the list of supported commands.
+- `doc` is the alias for `docker` and `dc` is the alias for `docker compose`.
 - `sql` is the alias for a dead simple SQL Server running on docker. Try `sql h` to show the list of supported commands.
 - `gh a` and `git a` are aliases to list all their aliases.
 - `serve` is a short hand command to run a dead simple web server from the current folder. Try `serve 4321` to see it in action.

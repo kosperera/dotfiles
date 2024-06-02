@@ -30,11 +30,13 @@ echo "git version: $(git version)"
 echo "gh version: $(gh version)"
 
 echo "Installing container tools"
-# Replace docker desktop with podman for ent/professional use.
-# See https://www.docker.com/blog/updating-product-subscriptions/
-brew install podman
+# Replace podman from Docker.
+# See https://github.com/localstack/localstack/issues/5304
+brew install --cask docker
+echo "docker version: $(docker version)"
+# brew install podman
+# echo "podman version: $(podman version)"
 
-echo "podman version: $(podman version)"
 
 echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code

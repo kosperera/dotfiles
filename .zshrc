@@ -62,7 +62,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(textmate brew sdk git gh docker)
+plugins=(textmate brew sdk git gitfast gh docker)
 
 # User configuration
 

@@ -1,17 +1,18 @@
 # Set personal aliases
-alias pod=podman
-alias podc='podman compose'
+
+# `docker` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker#aliases
+alias dsprune='docker system prune -a -f --volumes'
 
 # utility shortcuts improved
-# Unknown command: cask https://stackoverflow.com/a/45116705
-alias yolo="sdk selfupdate force && sdk update && bubo && bubc && bugbc" # upgrade every-fuckin-thing
+alias yolo='sdk selfupdate force && sdk update && bubo && bubc && bugbc' # upgrade every-fuckin-thing
 
 alias reload='. ~/.zshrc'                   # Reload the zshrc
 
 alias cp='cp -riv'                          # Copy recursivve, safe, and verbose
 alias mv='mv -iv'                           # Move safe and verbose
 alias md='mkdir -vp'                        # Make directory
-alias ll='ls -FGlAhp'                       # Show all including hidden files, folders, etc.
+# Use `l` instead.
+# alias ll='ls -FGlAhp'                     # Show all including hidden files, folders, etc.
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)

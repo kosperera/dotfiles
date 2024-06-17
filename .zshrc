@@ -17,7 +17,7 @@ HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -62,7 +62,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(textmate brew sdk git gitfast gh docker aws azure bun deno dotnet)
+plugins=(textmate brew sdk git gitfast gh docker aws)
 
 # User configuration
 
@@ -89,14 +89,6 @@ plugins=(textmate brew sdk git gitfast gh docker aws azure bun deno dotnet)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Load additional help/utilities.
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.dotfiles/.{path,zshrc-prompt,zshrc-exports,zshrc-aliases,zshrc-functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
 
 # ZSH auto cd
 # setopt AUTO_CD

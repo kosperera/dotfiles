@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ZSH prompt
 
 # Load vcs_info function

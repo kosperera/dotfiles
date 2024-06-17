@@ -1,10 +1,11 @@
 # Always list directory contents upon 'cd'
-cd () { builtin cd "$@"; ll; }
+cd () { builtin cd "$@"; lsa; }
 
 # mcd: Makes new Dir and jumps inside
 mcd () { md "$1"; cd "$1"; }
 
-rd () { command rm -rf "$1"; ll; }
+# See https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/directories.zsh
+# rd () { command rm -rf "$1"; ls -lAh; }
 
 # trash: Moves a file to the MacOS trash        
 trash () { command mv "$@" ~/.Trash ; }
@@ -131,14 +132,14 @@ serve() {
 sql() {
     if [ -n $1 ] ; then
       case $1 in
-        up )          podc -f ~/.dotfiles/.sql-server up --build -d --quiet-pull ;;
-        stop | st)    podc -f ~/.dotfiles/.sql-server stop ;;
-        restart | rs) podc -f ~/.dotfiles/.sql-server restart ;;
-        down | d)     podc -f ~/.dotfiles/.sql-server down --rmi "all" -v --remove-orphans ;;
+        up )          podc -f $DOTFILES_DIR/.sqlsvr.yml up --build -d --quiet-pull ;;
+        stop | st)    podc -f ~/.dotfiles/.sqlsvr.yml stop ;;
+        restart | rs) podc -f ~/.dotfiles/.sqlsvr.yml restart ;;
+        down | d)     podc -f ~/.dotfiles/.sqlsvr.yml down --rmi "all" -v --remove-orphans ;;
         help | h)
           echo -e ""
           echo -e "Dead simple sql server running on docker"
-          echo -e "The docker compose file is .sql-server"
+          echo -e "The docker compose file is .sqlsvr.yml"
           echo -e ""
           echo -e "sql h  | help      : List all sql commands and aliases"
           echo -e "sql up             : Spin up a sql server in a container"

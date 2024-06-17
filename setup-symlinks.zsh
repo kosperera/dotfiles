@@ -8,18 +8,23 @@
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+DOTFILES_DIR="$HOME/.dotfiles"
+
 # GitHub is special.
-mkdir -p ~/.config/gh
-rm -rf ~/.config/gh/config.yml && ln -s ~/.dotfiles/.gh.c.yml ~/.config/gh/config.yml
-# Zed is too new to sync.
-# mkdir -p ~/.config/zed
-# rm -rf ~/.config/zed/settings.json && ln -s ~/.dotfiles/.zed.s.json ~/.config/zed/settings.json
+mkdir -p $HOME/config/gh
+rm -rf $HOME/.config/gh/config.yml && ln -s $DOTFILES_DIR/.gh.c.yml $HOME/.config/gh/config.yml
+
+# Oh-my-zsh custom.
+for omzfile in {prompt,aliases,exports,functions}.zsh; do
+  rm -rf $ZSH_CUSTOM/$omzfile && ln -s $DOTFILES_DIR/.oh-my-zsh/$omzfile $ZSH_CUSTOM/$omzfile
+done;
+unset omzfile;
 
 # Symlink the rest.
-for file in .{zshrc-prompt,zshrc,gitconfig,gitignore,npmrc,nvmrc}; do
-  rm -rf ~/$file && ln -s ~/.dotfiles/$file ~/$file
+for dotfile in .{zshrc,gitconfig,gitignore,npmrc,nvmrc}; do
+  rm -rf $HOME/$dotfile && ln -s $DOTFILES_DIR/$dotfile $HOME/$dotfile
 done;
-unset file;
+unset dotfile;
 
 # Initialize new settings.
-source ~/.zshrc
+source $HOME/.zshrc

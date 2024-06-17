@@ -12,10 +12,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "brew version: $(brew -v)"
 
-# Make sure we’re using the latest Homebrew.
-brew update
-# Upgrade any already-installed formulae.
-brew upgrade
+# See aliases https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew#aliases
+
+# Update Homebrew data, then list outdated formulae and casks.
+# Upgrade outdated formulae and casks, then run cleanup.
+bubu
 
 # Install a few Terminal stuff.
 brew install typewritten
@@ -34,9 +35,9 @@ echo "Installing container tools"
 # See https://github.com/localstack/localstack/issues/5304
 brew install --cask docker
 echo "docker version: $(docker version)"
-# brew install podman
-# echo "podman version: $(podman version)"
 
+brew install awscli
+echo "aws --version: $(aws --version)"
 
 echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code

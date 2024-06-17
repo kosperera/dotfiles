@@ -2,9 +2,12 @@
 
 # `docker` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker#aliases
 alias dsprune='docker system prune -a -f --volumes'
+# `aws` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws#plugin-commands
+alias aws_config='aws configure sso'
+alias aws_login='asp admin login'
 
 # utility shortcuts improved
-alias yolo='sdk selfupdate force && sdk update && bubo && bubc && bugbc' # upgrade every-fuckin-thing
+alias yolo='sdk selfupdate force && sdk update && bubu && bugbc' # upgrade every-fuckin-thing
 
 alias reload='. ~/.zshrc'                   # Reload the zshrc
 
@@ -29,7 +32,7 @@ alias c='clear'                             # c:            Clear terminal displ
 alias cls='clear'                           # cls:          Clear terminal display (for fast typers)
 alias which='type -a'                       # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
-alias show_options='shopt'                  # Show_options: display bash options settings
+alias show_options='shopt'                  # show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
 

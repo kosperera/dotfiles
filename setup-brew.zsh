@@ -48,6 +48,7 @@ brew install --cask figma
 brew install --cask inkscape
 brew install --cask discord
 brew install --cask zoom
+brew install --cask whatsapp
 
 echo "code --version: $(code --version)"
 

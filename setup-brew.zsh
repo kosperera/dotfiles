@@ -37,7 +37,9 @@ brew install --cask docker
 echo "docker version: $(docker version)"
 
 brew install awscli
+brew install hashicorp/tap/terraform
 echo "aws --version: $(aws --version)"
+echo "terraform --version: $(terraform --version)"
 
 echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code
@@ -48,7 +50,7 @@ brew install --cask figma
 brew install --cask inkscape
 brew install --cask discord
 brew install --cask zoom
-brew install --cask whatsapp
+# brew install --cask whatsapp
 
 echo "code --version: $(code --version)"
 

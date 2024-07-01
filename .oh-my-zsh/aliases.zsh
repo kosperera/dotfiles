@@ -5,6 +5,13 @@ alias dsprune='docker system prune -a -f --volumes'
 # `aws` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws#plugin-commands
 alias aws_config='aws configure sso'
 alias aws_login='asp admin login'
+# Common Question https://stackoverflow.com/a/75632221
+alias aws_ec='eval "$(aws configure export-credentials --profile admin --format env)"'
+# `tf` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/terraform#aliases
+alias tfh='tf -h'
+alias tfaa='tfa -auto-approve'
+alias tfda='tfd -auto-approve'
+alias tfada='tfa -destroy -auto-approve'
 
 # utility shortcuts improved
 alias -g yolo='sdk selfupdate force && sdk update && bubu && bugbc' # upgrade every-fuckin-thing

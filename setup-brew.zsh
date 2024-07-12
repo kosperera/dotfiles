@@ -20,6 +20,7 @@ bubu
 
 # Install a few Terminal stuff.
 brew install typewritten
+brew install httpie
 
 # Install git tools
 # Uncomment if not installed via xcode

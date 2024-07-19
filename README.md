@@ -42,9 +42,8 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 6. Configure macOS and the Terminal.app to be smarter.
 
-
    ```bash
-source ~/.dotfiles/setup-macos.zsh
+   source ~/.dotfiles/setup-macos.zsh
    ```
 
 7. Create (or recreate) symlinks for .dotfiles.

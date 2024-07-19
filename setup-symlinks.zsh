@@ -14,7 +14,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 # ln -s -f $DOTFILES_DIR/Taskfile.yml $HOME/Taskfile.yml
 
 # GitHub is also special.
-mkdir -p $HOME/config/gh
+mkdir -p $HOME/.config/gh
 ln -s -f $DOTFILES_DIR/.gh.c.yml $HOME/.config/gh/config.yml
 
 # Oh-my-zsh custom.

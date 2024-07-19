@@ -37,22 +37,29 @@ This repo includes a shell script for executing the bulk of the configuration I 
 5. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
 
    ```bash
-   git clone https://github.com/kosalanuwan/dotfiles ~/.dotfiles
+   git clone https://github.com/kosperera/dotfiles ~/.dotfiles
    ```
 
-6. Create (or recreate) symlinks for .dotfiles.
+6. Configure macOS and the Terminal.app to be smarter.
+
+
+   ```bash
+source ~/.dotfiles/setup-macos.zsh
+   ```
+
+7. Create (or recreate) symlinks for .dotfiles.
 
    ```bash
    source ~/.dotfiles/setup-symlinks.zsh
    ```
 
-7. Then, update, upgrade, and install core tools and the stuff via `brew`.
+8. Then, update, upgrade, and install core tools and the stuff via `brew`.
 
    ```bash
    source ~/.dotfiles/setup-brew.zsh
    ```
 
-8. Next, install core tools for Java and the stuff via `sdk`.
+9. Next, install core tools for Java and the stuff via `sdk`.
 
    ```bash
    source ~/.dotfiles/setup-sdk.zsh
@@ -60,24 +67,19 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
    > SDKMAN install script tweaks our `.zshrc` file but those `export` commands are already done in the `.zsh_exports`, so we can disregard those changes.
 
-9. Download the rest of the apps from Apple App Store or otherwise.
+10. Import Terminal.app Night Owl theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
 
-   - Microsoft Office
-   - Microsoft OneDrive, and
+11. Download Microsoft 365 with OneDrive from Microsoft site.
 
-10. Configure macOS and the Terminal.app to be smarter.
-
-   ```bash
-   source ~/.dotfiles/setup-macos.zsh
-   ```
-
-11. Import Terminal.app theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
-
-12. Import Typora.app theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
+12. Download Typora.app Notion Dark Enhanced theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
 
 13. Sign in to VS Code and sync settings, profiles, extensions et al.
 
-14. Sing in to `gh`.
+14. Sign in to IntelliJ IDEA and sync settings, profiles, et al.
+
+15. Sign in to Docker Desktop and install Docker Extensions.
+
+16. Sing in to `gh`.
     ```bash
     gh auth login
     # What account do you want to log into? GitHub.com

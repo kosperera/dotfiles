@@ -50,6 +50,7 @@ brew install --cask canva
 brew install --cask figma
 brew install --cask inkscape
 brew install --cask drawio
+brew install --cask miro
 brew install --cask discord
 brew install --cask zoom
 # brew install --cask whatsapp

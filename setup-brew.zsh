@@ -47,13 +47,7 @@ brew install --cask visual-studio-code
 brew install --cask intellij-idea-ce
 brew install --cask typora@dev
 brew install --cask canva
-brew install --cask figma
-brew install --cask inkscape
 brew install --cask drawio
-brew install --cask miro
-brew install --cask discord
-brew install --cask zoom
-# brew install --cask whatsapp
 
 echo "code --version: $(code --version)"
 

@@ -6,7 +6,7 @@ alias dsprune='docker system prune -a -f --volumes'
 alias aws_config='aws configure sso'
 alias aws_login='asp admin login'
 # Common Question https://stackoverflow.com/a/75632221
-alias aws_ec='eval "$(aws configure export-credentials --profile admin --format env)"'
+alias aws_export_creds='eval "$(aws configure export-credentials --profile admin --format env)"'
 # `tf` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/terraform#aliases
 alias tfh='tf -h'
 alias tfaa='tfa -auto-approve'

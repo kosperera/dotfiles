@@ -37,6 +37,8 @@ echo "Installing container tools"
 brew install --cask docker
 echo "docker version: $(docker version)"
 
+brew install localstack/tap/localstack-cli
+
 brew install awscli
 brew install hashicorp/tap/terraform
 echo "aws --version: $(aws --version)"

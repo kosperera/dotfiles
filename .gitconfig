@@ -50,11 +50,8 @@
 
 	# Commits all changes with a given commit message.
 	# Example: git cm 'chore: initial commit'
-	cm = !"f() { \
-	git add -A; \
-	git commit -m \"$@\"; \
-	}; f \"$@\""
-
+	cam = commit -am
+	# 
 	# Short-hand for 'git push'.
 	# git ps
 	# git ps --force
@@ -67,7 +64,7 @@
 	yolo = !git fetch --force && git reset FETCH_HEAD --hard && git clean -df && git ps --force
 
 	# git this repo-named-snafu
-	this = !git init -q && git cm "chore: initial commit"
+	this = !git init -q && git cam "chore: initial commit"
 
 # 	# git purge : Remove all branches except `main` branch.
 # 	purge = ! git branch | grep -v 'main' | xargs git branch -D

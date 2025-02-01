@@ -48,7 +48,6 @@ echo "Installing a few apps with brew --cask"
 brew install --cask visual-studio-code
 brew install --cask intellij-idea-ce
 brew install --cask typora@dev
-brew install --cask canva
 brew install --cask drawio
 
 echo "code --version: $(code --version)"

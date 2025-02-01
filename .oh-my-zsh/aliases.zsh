@@ -14,10 +14,9 @@ alias tfda='tfd -auto-approve'
 alias tfada='tfa -destroy -auto-approve'
 
 # utility shortcuts improved
-alias -g yolo='sdk selfupdate force && sdk update && bubu && bugbc' # upgrade every-fuckin-thing
+alias -g yolo='omz update && sdk selfupdate force && sdk update && bubu && bugbc' # Upgrade every-fuckin-thing
 
-# alias -g reload='. ~/.zshrc'                # Reload the zshrc
-alias -g reload='omz reload'
+alias -g reload='omz reload'                # Reload the zshrc
 
 alias cp='cp -riv'                          # Copy recursivve, safe, and verbose
 alias mv='mv -iv'                           # Move safe and verbose

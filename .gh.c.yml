@@ -67,7 +67,7 @@ aliases:
     p: '!git p'
     # Commits all changes with a given commit message.
     # gh cm 'chore: initial commit'
-    cm: '!git cm "$1"'
+    cam: '!git cam "$1"'
     # Pushes all the commits to the remote.
     # gh ps
     ps: '!git ps'

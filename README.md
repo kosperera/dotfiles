@@ -31,13 +31,19 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 4. Then, download and install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
 
-5. And, clone [Powerlevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#oh-my-zsh) theme.
+5. And, clone Oh My Zsh plugins and themes.
 
    ```bash
-   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}/themes/powerlevel10k"
+   # Powerlevel10K theme
+   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+   										"${ZSH_CUSTOM}/themes/powerlevel10k"
+   
+   # Zsh Auto Suggestions plugin
+   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions \
+                       "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
    ```
 
-   > It's not my first rodeo, so just clone it to the recommended path `~/.oh-my-zsh/custom/themes`.
+   > It's not my first rodeo, so just clone it to the recommended path `~/.oh-my-zsh/custom`.
 
 6. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
 

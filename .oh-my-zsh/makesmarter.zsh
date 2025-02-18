@@ -22,8 +22,11 @@ alias tfh='tf -h'
 alias tfaa='tfa -auto-approve'
 alias tfda='tfd -auto-approve'
 alias tfada='tfa -destroy -auto-approve'
-# utility shortcuts improved
-alias -g yolo='omz update && sdk selfupdate force && sdk update && bubu && bugbc' # Upgrade every-fuckin-thing
+# yolo: Upgrade every-fuckin-thing
+alias -g yolo='omz update && \
+                       sdk selfupdate force && sdk update && \
+                       bubo && bup --greedy && \
+                       ba && bcn'
 
 # Set standard shortcuts
 alias -g reload='omz reload'                # Reload the zshrc

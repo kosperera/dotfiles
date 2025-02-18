@@ -43,5 +43,6 @@ bcin visual-studio-code && echo "vscode version: $(code --version)"
 bcin intellij-idea-ce
 bcin typora@dev
 
-# Remove outdated versions from the cellar.
-brew cleanup
+# Remove unused versions of the installed formulae.
+ba  # Autoremove
+bcn # Cleanup

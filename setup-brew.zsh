@@ -16,13 +16,10 @@ echo "brew version: $(brew -v)"
 # Upgrade outdated formulae and casks, then run cleanup.
 bubu
 
-# Install a few Terminal stuff.
-bi zoxide
-bi httpie
-echo "zoxide version: $(zoxide --version)"
-echo "httpie version: $(httpie --version)"
+echo "Installing a few Terminal stuff"
+bi zoxide && echo "zoxide version: $(zoxide --version)"
+bi httpie && echo "httpie version: $(httpie --version)"
 
-# Install git tools
 # Uncomment if not installed via xcode
 echo "Installing git tools"
 bcin git-credential-manager
@@ -31,24 +28,20 @@ bi gh
 echo "git version: $(git version)"
 echo "gh version: $(gh version)"
 
+echo "Installing cloud and cloud infra tools"
+bi awscli && echo "aws version: $(aws --version)"
+bi opentofu && echo "tofu version: $(tofu version)"
+
 echo "Installing container tools"
 # Replace podman from Docker.
 # See https://github.com/localstack/localstack/issues/5304
-bcin docker
-echo "docker version: $(docker version)"
+bcin docker && echo "docker version: $(docker version)"
 bi localstack/tap/localstack-cli
-bi awscli
-echo "aws --version: $(aws --version)"
-
-bi opentofu
-echo "tofu version: $(tofu -version)"
 
 echo "Installing a few apps with brew --cask"
-bcin visual-studio-code
+bcin visual-studio-code && echo "vscode version: $(code --version)"
 bcin intellij-idea-ce
 bcin typora@dev
-
-echo "code --version: $(code --version)"
 
 # Remove outdated versions from the cellar.
 brew cleanup

@@ -11,7 +11,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 DOTFILES_DIR="$HOME/.dotfiles"
 
 # Make the terminal smarter.
-ln -s -f $DOTFILES_DIR/.oh-my-zsh/makesmarter.zsh ${ZSH_CUSTOM:-"~/.oh-my-zsh/custom"}/makesmarter.zsh
+ln -s -f $DOTFILES_DIR/.oh-my-zsh.zsh $HOME/.oh-my-zsh.zsh
 # GitHub is very special.
 mkdir -p $HOME/.config/gh
 ln -s -f $DOTFILES_DIR/.gh.c.yml $HOME/.config/gh/config.yml

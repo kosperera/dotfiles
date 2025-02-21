@@ -1,15 +1,3 @@
-# Preferred editor
-export EDITOR=/opt/homebrew/bin/code
-# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
-export PYTHONIOENCODING='UTF-8';
-# For compilers to find libxml2
-export LDFLAGS="-L/usr/local/opt/libxml2/lib"  
-export CPPFLAGS="-I/usr/local/opt/libxml2/include"
-# For pkg-config to find libxml2
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"  
-
-# Set personal aliases
-
 # `docker` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker#aliases
 alias dsprune='docker system prune -a -f --volumes'
 # `aws` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws#plugin-commands
@@ -22,34 +10,45 @@ alias tfh='tf -h'
 alias tfaa='tfa -auto-approve'
 alias tfda='tfd -auto-approve'
 alias tfada='tfa -destroy -auto-approve'
-# yolo: Upgrade every-fuckin-thing
-alias -g yolo='omz update && \
-                       sdk selfupdate force && sdk update && \
-                       bubo && bup --greedy && \
-                       ba && bcn'
+# yolo: Upgrade every-fuckin-thing!
+alias -g yolo='zinit self-update && zinit update --parallel && \
+               sdk selfupdate force && sdk update && \
+               brew update && brew upgrade --greedy && brew autoremove && brew cleanup && brew doctor'
 
 # Set standard shortcuts
-alias -g reload='omz reload'                # Reload the zshrc
 alias -g cd..='cd ..'
 alias -g ..='cd ..'
 alias -g ...='cd ../..'
-alias -g ....='cd ../../..'
-alias -g .....='cd ../../../..'
-alias -g ......='cd ../../../../..'
+alias -g .3='cd ../../..'
+alias -g .4='cd ../../../..'
+alias -g .5='cd ../../../../..'
+alias -g .6='cd ../../../../../..'
+
+alias -- -='cd -'
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+
+alias md='mkdir -p'
+alias rd=rmdir
 alias cp='cp -riv'                          # Copy recursivve, safe, and verbose
 alias mv='mv -iv'                           # Move safe and verbose
-alias less='less -FSRXc'                    # Preferred 'less' implementation
-alias -g edit='code'                        # edit: Opens any file in VS Code editor
-alias f='open -a Finder ./'                 # f: Opens current directory in MacOS Finder
+# List directory contents
+alias lsa='ls -lah --color'
+alias l='ls -lah --color'
+alias ll='ls -lh --color'
+alias la='ls -lAh --color'
+alias ls='ls -lAh --color'
+
 alias -g c='clear'                          # c:            Clear terminal display
-alias -g cls='clear'                        # cls:          Clear terminal display (for fast typers)
 alias which='type -a'                       # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
-alias show_options='shopt'                  # show_options: display bash options settings
+
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
-# Folder management
-alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
 # Networking
 alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
@@ -72,35 +71,12 @@ trash () { command mv "$@" ~/.Trash ; }
 ql () { qlmanage -p "$*" >& /dev/null; }    
 # zipf: To create a ZIP archive of a folder
 zipf () { zip -r "$1".zip "$1" ; }          
-# extract: Extract most known archives with one command
-extract () {
-    if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-          esac
-      else
-          echo "'$1' is not a valid file"
-      fi
-}
 # ff: Find file under the current directory
 ff () { /usr/bin/find . -name "$@" ; }      
 # ffs: Find file whose name starts with a given string
 ffs () { /usr/bin/find . -name "$@"'*' ; }  
 # ffe: Find file whose name ends with a given string
-ffe () { /usr/bin/find . -name '*'"$@" ; }  
-# spotlight: Search for a file using MacOS Spotlight's metadata
-spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+ffe () { /usr/bin/find . -name '*'"$@" ; }
 
 # findPid: find out the pid of a specified process
 # Note that the command name can be specified via a regex
@@ -128,24 +104,3 @@ serve() {
     echo "Your cool server is running on http://localhost:$1"
     open http://localhost:$1/ && python3 -m http.server $1
 }
-
-# Brew shell completion setup
-# see https://github.com/Homebrew/brew/blob/master/docs/Shell-Completion.md#configuring-completions-in-zsh
-eval "$(/opt/homebrew/bin/brew shellenv)"
-if type brew &>/dev/null
-then
-  # HOMEBREW_PREFIX="$(brew --prefix)"
-  FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
-
-  rm -f ~/.zcompdump; compinit
-  chmod -R go-w "$HOMEBREW_PREFIX/share"
-fi
-
-# For `zoxide` commands to work with `cd`
-export ZOXIDE_CMD_OVERRIDE="cd"
-command -v zoxide > /dev/null 2>&1 && eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
-
-# For sdkman to work!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-

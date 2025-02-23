@@ -1,4 +1,0 @@
-[submodule "terminals"]
-	path = terminals
-	url = https://github.com/kosperera/try-macos-terminals
-	shallow = true

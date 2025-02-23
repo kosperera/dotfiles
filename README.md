@@ -1,23 +1,19 @@
-# .dotfiles
+# `/.dotfiles`
 
-This repo includes a shell script for executing the bulk of the configuration I follow to set up my Mac's development environment to get me up-to-speed with the tools et al. so I can more quickly get back to coding.
-
-
+This repo include shell scripts for executing the bulk of the configuration I follow to set up my Mac's development environment to get me up-to-speed with the tools et al. so I can more quickly get back to *Chillin like Billin*.
 
 ### What's included:
 
-| File                | Description                                                  |
-| ------------------- | ------------------------------------------------------------ |
-| `setup-brew.zsh`    | Install some of the core tools I use.                        |
-| `setup-sdk.zsh`     | Install core tools for Java I use.                           |
-| `setup-macos.zsh`   | Configure macOS and the Terminal to be smarter.              |
-| `setup-symlink.zsh` | Create sim links for `~/.dotfiles/*`.                        |
-| `.zshrc`            | Customizes the default shell to be smarter.                  |
-| `.gh`               | Global GitHub CLI configuration to specify shortcuts and helper functions. |
-| `.gitconfig`        | Global Git configuration to specify my name and email, shortcuts, colors, and more. |
-| `.gitignore`        | Global ignores from [@github/gitignore](https://github.com/github/gitignore) that I use everywhere. |
-
-
+| File                 | Description                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| `/terminals`         | Terminal.app themes (or profiles) I use.                     |
+| `install`            | Install cli tools, sdks, and apps I use.                     |
+| `update-os-settings` | Configure macOS and the Terminal to be smarter.              |
+| `.zshrc`             | Customizes Zsh and the prompt to be smarter.                 |
+| `.omz-yolo.zsh`      | Familiar environment variables, aliases, helper functions, et al. |
+| `.gh`                | GitHub CLI (or `gh`) configurations to specify shortcuts and helper functions. |
+| `.gitconfig`         | Git CLI (or `git`) configurations to specify my name and email, shortcuts, colors, and more. |
+| `.gitignore`         | Ignore macOS-specific and editor-specifics, taken from [@github/gitignore](https://github.com/github/gitignore). |
 
 ## Install
 
@@ -27,69 +23,46 @@ This repo includes a shell script for executing the bulk of the configuration I 
 
 2. Next, run `softwareupdate --install-rosetta` enable Rosetta 2.
 
-3. Install [Oh My Zsh](https://ohmyz.sh/#install).
+3. Download and install [Homebrew](https://github.com/Homebrew/brew/releases) and follow the post-installation instructions.
 
-4. Then, download and install [Homebrew](https://github.com/Homebrew/brew/releases) (or `brew`) and follow the post-installation instructions.
-
-5. And, clone Oh My Zsh plugins and themes.
+4. Next, clone this repo. Command Line Tools should install `git`, so we should be fine.
 
    ```bash
-   # Powerlevel10K theme
-   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-   										"${ZSH_CUSTOM}/themes/powerlevel10k"
+   git clone --recursive-submodules \
+             --depth=1 \
+             https://github.com/kosperera/dotfiles \
+             ~/.dotfiles
+   ```
+
+5. Setup macOS and Terminal.app to be smarter.
+
+   ```bash
+   source ~/.dotfiles/update-os-settings
+   ```
+
+6. Next, install nerd fonts, dev tools, cli tools, sdks, apps and the like.
+
+   ```bash
+   source ~/.dotfiles/install
+   ```
    
-   # Zsh Auto Suggestions plugin
-   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions \
-                       "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
-   ```
+   > SDKMAN install script tweaks our `.zshrc` file but those `export` commands are already done in the `.zshrc`, so we can disregard those changes.
 
-   > It's not my first rodeo, so just clone it to the recommended path `~/.oh-my-zsh/custom`.
+7. Import Terminal.app theme from [/terminals](/terminals) folder, then change font to *JetBrains Mono Nerd Font 12pt*.
 
-6. Next, clone this repo into the hidden `.dotfiles` directory. Homebrew should install `git`, so we should be fine.
+9. Restart the Terminal.app to [install and setup cli tools](.zshrc). Some of these changes require a logout/restart to take effect.
 
-   ```bash
-   git clone --depth=1 https://github.com/kosperera/dotfiles ~/.dotfiles
-   ```
+10. Download Microsoft 365 with OneDrive from Microsoft site, then sign into activate license.
 
-7. Configure macOS and the Terminal.app to be smarter.
+11. Download Typora.app Tokyo Night theme from [@Aemiii91/typora-theme-tokyo-night](https://github.com/Aemiii91/typora-theme-tokyo-night).
 
-   ```bash
-   source ~/.dotfiles/setup-macos.zsh
-   ```
+12. Sign into VS Code and sync settings, profiles, extensions et al.
 
-8. Create (or recreate) symlinks for .dotfiles.
+13. Sign into IntelliJ IDEA and sync settings, profiles, et al.
 
-   ```bash
-   source ~/.dotfiles/setup-symlinks.zsh
-   ```
+14. Sign into Docker Desktop and install Docker Extensions.
 
-9. Then, update, upgrade, and install core tools and the stuff via `brew`.
-
-   ```bash
-   source ~/.dotfiles/setup-brew.zsh
-   ```
-
-10. Next, install core tools for Java and the stuff via `sdk`.
-
-   ```bash
-   source ~/.dotfiles/setup-sdk.zsh
-   ```
-
-   > SDKMAN install script tweaks our `.zshrc` file but those `export` commands are already done in the `makesmarter.zsh`, so we can disregard those changes.
-
-11. Import Terminal.app Night Owl theme from [@lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes).
-
-12. Download Microsoft 365 with OneDrive from Microsoft site.
-
-13. Download Typora.app Notion Dark Enhanced theme from [@adrian-fuertes/notion-themes](https://github.com/adrian-fuertes/typora-notion-theme/tree/main).
-
-14. Sign in to VS Code and sync settings, profiles, extensions et al.
-
-15. Sign in to IntelliJ IDEA and sync settings, profiles, et al.
-
-16. Sign in to Docker Desktop and install Docker Extensions.
-
-17. Sing in to `gh`.
+15. Sing into `gh`.
     ```bash
     gh auth login
     # What account do you want to log into? GitHub.com
@@ -98,33 +71,28 @@ This repo includes a shell script for executing the bulk of the configuration I 
     # How would you like to authenticate GitHub CLI? Login with a web browser
     ```
 
-
-
+16. Create an `admin` profile and sign into `aws`.
 
 ## Useful Commands / Aliases
 
-- `alias` is a short hand to list all the aliases for terminal commands.
-- `gh a` and `git a` are aliases to list all their aliases.
-- `serve` is a short hand command to run a dead simple web server from the current folder. Try `serve 4321` to see it in action.
-- `yolo` is to upgrade *Every Thuckin' Thing!*.
-
-
+- `yolo` is to update and upgrade *Every Thuckin' Thing!*
+- `dsprune` is to clean up unused containers, images, and volumes.
+- `aws_login <profile>` to authenticate AWS.
+- aws_refresh to export AWS credentials and refresh tokens.
+- `serve <port>` to spin up a dead simple HTTP server.
 
 ## WOMM
 
 Yep, it works on my machine and hopefully it does on your's as well but please don't hate me if it doesn't.
 
-
-
 ## Credit
 
 Many of the customizations are taken from:
 
+- [@elliottminns/dotfiles](https://github.com/elliottminns/dotfiles)
 - [@kentcdodds/dotfiles](https://github.com/kentcdodds/dotfiles)
 - [@mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), and
 - [@pawelgrzybek/dotfiles](https://github.com/pawelgrzybek/dotfiles)
-
-
 
 ## License
 

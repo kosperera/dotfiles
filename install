@@ -1,0 +1,73 @@
+#!/usr/bin/env zsh
+
+# First, make sure to install Homebrew
+# from https://github.com/Homebrew/brew/releases
+
+# Settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+# Ask for the administrator password upfront
+sudo -v
+# Keep-alive: update existing `sudo` time stamp until `setup-*` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Check for potential problems.
+brew doctor
+# Update recipes and formulae.
+brew update && brew upgrade
+
+# Nerd Fonts for the Terminal and the Editors.
+# Once installed, you can select them in the Terminal preferences.
+brew search '/font-jetbrains.*-nerd-font/' | awk '{ print $1 }' | xargs brew install
+
+brew install fzf
+brew install zoxide
+brew install httpie
+
+# Uncomment if not installed via xcode.
+brew install --cask git-credential-manager
+brew install gh
+
+brew install awscli
+brew install opentofu
+
+# Replace podman from Docker.
+# See https://github.com/localstack/localstack/issues/5304
+brew install --cask docker
+brew install localstack/tap/localstack-cli
+
+# Install some editors.
+brew install --cask visual-studio-code
+brew install --cask intellij-idea-ce
+brew install --cask typora@dev
+
+# Uninstalls unnecessary formulae.
+brew autoremove
+brew cleanup
+
+# First, make sure to install Sdkman from https://sdkman.io/install
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Install some sdks.
+# https://sdkman.io/jdks#ms
+sdk install java 21-ms
+
+# Symlink .dotfiles into HOME
+# Symlink instead of replacing.
+# ln -s <source> <destination>
+# E.g. ln -s ~/.dotfiles/.docker-compose ~/.docker-compose
+
+DOTFILES_DIR="$HOME/.dotfiles"
+
+# Make the terminal smarter.
+ln -s -f $DOTFILES_DIR/.omz-yolo.zsh $HOME/.omz-yolo.zsh
+# GitHub is very special.
+mkdir -p $HOME/.config/gh
+ln -s -f $DOTFILES_DIR/.gh.c.yml $HOME/.config/gh/config.yml
+# Symlink the rest.
+ln -s -f $DOTFILES_DIR/.gitconfig $HOME/.gitconfig
+ln -s -f $DOTFILES_DIR/.gitignore $HOME/.gitignore
+# Symlink the zsh config files.
+# To customize prompt, run `p10k configure` or edit .p10k.zsh.
+ln -s -f $DOTFILES_DIR/.p10k.zsh $HOME/.p10k.zsh
+ln -s -f $DOTFILES_DIR/.zshrc $HOME/.zshrc

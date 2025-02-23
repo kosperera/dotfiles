@@ -16,29 +16,25 @@
 
 	# Clones a repo from GitHub.com or from an HTTP path.
 	# git c https://github.com/kosalanuwan/zebra-snooze
-	c = clone
+	c = clone --recurse-submodules
 
 	# Short-hand for 'git status --long'.
 	# git s
 	s = status --long
 	# git remotes
-	r = remote --verbose 
+	r = remote --verbose
 	# git branches
 	br = branch --all
 	# Lists the latest 10 commits in a Git Graph.
 	# git l10
 	l10 = log --pretty=oneline -n 10 --graph --abbrev-commit
 
-	# Short-hand for 'git fetch & switch'.
+	# Short-hand for 'git switch' without creating a branch.
 	# Example: git sw feat-43-upgrades
-	sw = !"f() { \
-	git fetch --all -q \"$@\"; \
-	git switch \"$1\"; \
-	}; f \"$@\""
-
+	sw = switch --guess --recurse-submodules
 	# Creates a new branch with changes merged if any.
 	# Example: git b fubar
-	b = switch --merge --create
+	b = switch --merge --create --no-guess --recurse-submodules
 	# Deletes a given local branch.
 	# Example: git del feat-43-upgrades
     del = branch -d
@@ -51,7 +47,7 @@
 	# Commits all changes with a given commit message.
 	# Example: git cm 'chore: initial commit'
 	cam = commit -am
-	# 
+	
 	# Short-hand for 'git push'.
 	# git ps
 	# git ps --force

@@ -41,6 +41,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Load powerlevel10k theme
 zinit ice depth "1"
 zinit light romkatv/powerlevel10k
+
 # Add zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -62,6 +63,14 @@ autoload -U compinit && compinit
 zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Prompt Style? Pure
+# Non-permanent Content Location? Right
+# Show Current Time? No
+# Prompt Height? Two Lines
+# Prompt Spacing? Sparse
+# Enable Transient Prompt? YES
+# Instant Prompt Mode? Verbose (Recommended)
+# Overwrite ~/.p10k.zsh? Yes
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
@@ -87,8 +96,8 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -la $realpath'
 zstyle ':fzf-tab:complete:__zoxide:*' fzf-preview 'ls -la $realpath'
 
-# Aliases
-source ~/.oh-my-zsh.zsh
+# Aliases and the likes.
+source ~/.omz-yolo.zsh
 
 # Shell integrations
 eval "$(fzf --zsh)"

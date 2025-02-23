@@ -15,77 +15,9 @@ aliases:
     a: alias list
     # Shows the current username ans the auth info.
     # gh whoami
-    whoami: |-
-        !
-        echo 'Git CLI is configured to use:'
-        git whoami
-
-        echo
-        gh auth status -t
-    # Forks a repo in GitHub.com and then clones it.
-    # gh f alertbox/zebra-snooze
-    f: repo fork "$1" --clone
+    whoami: auth status -t
     # Clones a repo from GitHub.com or from an HTTP path.
     # gh c zebra-snooze
+    # gh c alertbox/try-bun
     # gh c https://github.com/alertbox/zebra-snooze
-    c: repo clone
-    # Shows the current status of the repo.
-    # gh s
-    s: '!git s'
-    # Shows configured remotes.
-    # gh r
-    r: '!git r'
-    # Shows all the local and remote branches.
-    # gh br
-    br: '!git br'
-    # Shows the situation report of the repo.
-    # gh sr
-    sr: |-
-        !
-        echo 'Remotes Configured:'
-        gh r
-
-        echo 'Branch(es):'
-        gh br
-
-        echo 'Latest Activities:'
-        git l10
-
-        echo 'Current Status:'
-        gh s
-    # Switches to the provided branch.
-    # gh sw feat-43-upgrades
-    sw: '!git sw "$1"'
-    # Creates a new branch with changes merged if any.
-    # gh b fubar
-    b: '!git b "$1"'
-    # Deteles a given local branch.
-    # gh del feat-43-upgrades
-    del: '!git del "$1"'
-    # Pulls latest changes from the default remote and sub-modules if any.
-    # gh p
-    p: '!git p'
-    # Commits all changes with a given commit message.
-    # gh cm 'chore: initial commit'
-    cam: '!git cam "$1"'
-    # Pushes all the commits to the remote.
-    # gh ps
-    ps: '!git ps'
-    # Resets everything to its upstream default branch.
-    # NOTE: Recommended when forking the default branch instead of trunk-based development.
-    #       Use `git yolo`` for trunk-based development.
-    # gh yolo
-    yolo: |-
-        !
-        git fetch upstream --force
-        git reset FETCH_HEAD --hard
-        git clean -df
-        git ps --force
-    # Creates a new private repo in GitHub.com.
-    # gh cr repo-named-snafu
-    cr: repo create "$1" -y --enable-wiki=false --private
-    # gh this repo-named-snafu
-    this: |-
-        !
-        git this
-        gh cr "$1"
+    c: repo clone -- --recursive-submodules

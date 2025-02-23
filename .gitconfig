@@ -53,6 +53,10 @@
 	# git ps --force
 	ps = push
 
+	# git sm
+	# git sm update --remote --merge
+	sm = submodule
+
     # Resets everything to its remote/origin default branch.
     # NOTE: Recommended when trunk-based development instread of forking.
     #       Use `gh yolo`` for forking.
@@ -103,12 +107,14 @@
 	# Let `git purge` decide that.
 	# prune = true
 	recurseSubmodules = true
-[push]
-	recurseSubmodules = no
 [pull]
 	rebase = false
+[push]
+	recurseSubmodules = no
+
 [submodule]
 	recurse = true
+	
 [status]
   showUntrackedFiles = all
 [credential]

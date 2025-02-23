@@ -102,10 +102,13 @@
 	# Get rid of dead branches
 	# Let `git purge` decide that.
 	# prune = true
-
+	recurseSubmodules = true
+[push]
+	recurseSubmodules = no
 [pull]
 	rebase = false
-
+[submodule]
+	recurse = true
 [status]
   showUntrackedFiles = all
 [credential]

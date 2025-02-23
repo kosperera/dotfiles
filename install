@@ -56,18 +56,14 @@ sdk install java 21-ms
 # Symlink instead of replacing.
 # ln -s <source> <destination>
 # E.g. ln -s ~/.dotfiles/.docker-compose ~/.docker-compose
-
 DOTFILES_DIR="$HOME/.dotfiles"
-
-# Make the terminal smarter.
-ln -s -f $DOTFILES_DIR/.omz-yolo.zsh $HOME/.omz-yolo.zsh
 # GitHub is very special.
 mkdir -p $HOME/.config/gh
-ln -s -f $DOTFILES_DIR/.gh.c.yml $HOME/.config/gh/config.yml
-# Symlink the rest.
+ln -s -f $DOTFILES_DIR/.gh.yml $HOME/.config/gh/config.yml
 ln -s -f $DOTFILES_DIR/.gitconfig $HOME/.gitconfig
 ln -s -f $DOTFILES_DIR/.gitignore $HOME/.gitignore
-# Symlink the zsh config files.
+# Make the terminal smarter.
+ln -s -f $DOTFILES_DIR/.omz-yolo.zsh $HOME/.omz-yolo.zsh
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
 ln -s -f $DOTFILES_DIR/.p10k.zsh $HOME/.p10k.zsh
 ln -s -f $DOTFILES_DIR/.zshrc $HOME/.zshrc

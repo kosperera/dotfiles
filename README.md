@@ -1,4 +1,4 @@
-# `/.dotfiles`
+# `/dotfiles`
 
 This repo include shell scripts for executing the bulk of the configuration I follow to set up my Mac's development environment to get me up-to-speed with the tools et al. so I can more quickly get back to *Chillin like Billin*.
 
@@ -21,48 +21,40 @@ This repo include shell scripts for executing the bulk of the configuration I fo
 
 1. First, run `xcode-select --install` to enable Command Line Tools.
 
-2. Next, run `softwareupdate --install-rosetta` enable Rosetta 2.
+2. Next, run `softwareupdate --install-rosetta` to enable Rosetta 2.
 
 3. Download and install [Homebrew](https://github.com/Homebrew/brew/releases) and follow the post-installation instructions.
 
-4. Next, clone this repo. Command Line Tools should install `git`, so we should be fine.
+4. Next, clone this repo. [^git_sm_tip1] Command Line Tools should install `git`, so we should be fine.
+
+   [^git_sm_tip1]: How to update (or pull) submodules in a git repo? *Answered by @ElectricRCAircraftGuy*. See https://stackoverflow.com/a/74470585 (StackOverflow)
 
    ```bash
-   git clone --recursive-submodules \
+   git clone --recursive \
              --depth=1 \
              https://github.com/kosperera/dotfiles \
              ~/.dotfiles
    ```
 
-5. Setup macOS and Terminal.app to be smarter.
+5. Then, run `source ~/.dotfiles/update-os-settings` to make macOS and Terminal.app to be smarter.
 
-   ```bash
-   source ~/.dotfiles/update-os-settings
-   ```
+6. Next, run `source ~/.dotfiles/install` to install nerd fonts, dev tools, cli tools, sdks, apps and the like.
 
-6. Next, install nerd fonts, dev tools, cli tools, sdks, apps and the like.
-
-   ```bash
-   source ~/.dotfiles/install
-   ```
-   
    > SDKMAN install script tweaks our `.zshrc` file but those `export` commands are already done in the `.zshrc`, so we can disregard those changes.
 
 7. Import Terminal.app theme from [/terminals](/terminals) folder, then change font to *JetBrains Mono Nerd Font 12pt*.
 
-9. Restart the Terminal.app to [install and setup cli tools](.zshrc). Some of these changes require a logout/restart to take effect.
+8. Restart the Terminal.app to [install and setup cli tools](.zshrc). Some of these changes require a logout/restart to take effect.
 
-10. Download Microsoft 365 with OneDrive from Microsoft site, then sign into activate license.
+9. Download Typora.app Tokyo Night theme from [@Aemiii91/typora-theme-tokyo-night](https://github.com/Aemiii91/typora-theme-tokyo-night).
 
-11. Download Typora.app Tokyo Night theme from [@Aemiii91/typora-theme-tokyo-night](https://github.com/Aemiii91/typora-theme-tokyo-night).
+10. Sign into VS Code and sync settings, profiles, extensions et al.
 
-12. Sign into VS Code and sync settings, profiles, extensions et al.
+11. Sign into IntelliJ IDEA and sync settings, profiles, et al.
 
-13. Sign into IntelliJ IDEA and sync settings, profiles, et al.
+12. Sign into Docker Desktop and install Docker Extensions.
 
-14. Sign into Docker Desktop and install Docker Extensions.
-
-15. Sing into `gh`.
+13. Sing into `gh`.
     ```bash
     gh auth login
     # What account do you want to log into? GitHub.com
@@ -71,14 +63,22 @@ This repo include shell scripts for executing the bulk of the configuration I fo
     # How would you like to authenticate GitHub CLI? Login with a web browser
     ```
 
-16. Create an `admin` profile and sign into `aws`.
+14. Sign into `aws`.
+
+    ```bash
+    aws_config admin && \
+    aws_login admin && \
+    aws_refresh admin
+    ```
+
+15. Download Microsoft 365 with OneDrive from Microsoft site, then sign into activate license.
 
 ## Useful Commands / Aliases
 
 - `yolo` is to update and upgrade *Every Thuckin' Thing!*
 - `dsprune` is to clean up unused containers, images, and volumes.
 - `aws_login <profile>` to authenticate AWS.
-- aws_refresh to export AWS credentials and refresh tokens.
+- `aws_refresh <profile>` to export AWS credentials and refresh tokens.
 - `serve <port>` to spin up a dead simple HTTP server.
 
 ## WOMM

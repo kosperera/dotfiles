@@ -2,76 +2,6 @@
 	name = kosperera
 	email = therealkosala@gmail.com
 
-# Aliases allow you to create nicknames for git commands
-# Read more at https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
-# Awesome list of Git Aliases at https://www.gitalias.com
-[alias]
-	# Lists all the aliases defined below.
-	# git a
-	a = config --get-regexp alias
-
-	# Shows the username and the GitHub authenticated user info.
-	# git whoami
-	whoami = !git config user.email & git config user.name
-
-	# Clones a repo from GitHub.com or from an HTTP path.
-	# git c https://github.com/kosalanuwan/zebra-snooze
-	c = clone --recurse-submodules
-
-	# Short-hand for 'git status --long'.
-	# git s
-	s = status --long
-	# git remotes
-	r = remote --verbose
-	# git branches
-	br = branch --all
-	# Lists the latest 10 commits in a Git Graph.
-	# git l10
-	l10 = log --pretty=oneline -n 10 --graph --abbrev-commit
-
-	# Short-hand for 'git switch' without creating a branch.
-	# Example: git sw feat-43-upgrades
-	sw = switch --guess --recurse-submodules
-	# Creates a new branch with changes merged if any.
-	# Example: git b fubar
-	b = switch --merge --create --no-guess --recurse-submodules
-	# Deletes a given local branch.
-	# Example: git del feat-43-upgrades
-    del = branch -d
-
-	# Pulls latest changes from the default remote and sub-modules if any.
-	# Example: git p
-	# Example: git p --force
-	p = pull --recurse-submodules
-
-	# Commits all changes with a given commit message.
-	# Example: git cm 'chore: initial commit'
-	cam = commit -am
-	
-	# Short-hand for 'git push'.
-	# git ps
-	# git ps --force
-	ps = push
-
-	# git sm
-	# git sm update --remote --merge
-	sm = submodule
-
-    # Resets everything to its remote/origin default branch.
-    # NOTE: Recommended when trunk-based development instread of forking.
-    #       Use `gh yolo`` for forking.
-	# git yolo
-	yolo = !git fetch --force && git reset FETCH_HEAD --hard && git clean -df && git ps --force
-
-	# git this repo-named-snafu
-	this = !git init -q && git cam "chore: initial commit"
-
-# 	# git purge : Remove all branches except `main` branch.
-# 	purge = ! git branch | grep -v 'main' | xargs git branch -D
-# 	# git trash : Move all untracked stuff to `.trash` folder.
-# 	# FIXME: `mv: illegal option -- t`
-# 	# trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
-
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -107,8 +37,10 @@
 	# Let `git purge` decide that.
 	# prune = true
 	recurseSubmodules = true
+
 [pull]
 	rebase = false
+
 [push]
 	recurseSubmodules = no
 
@@ -117,8 +49,80 @@
 	
 [status]
   showUntrackedFiles = all
+
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+
+# Aliases allow you to create nicknames for git commands
+# Read more at https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
+# Awesome list of Git Aliases at https://www.gitalias.com
+[alias]
+	# Lists all the aliases defined below.
+	# git a
+	a = config --get-regexp alias
+
+	# Shows the username and the GitHub authenticated user info.
+	# git whoami
+	whoami = config --get-regexp user
+
+	# Clones a repo from GitHub.com or from an HTTP path.
+	# git c https://github.com/kosalanuwan/zebra-snooze
+	c = clone
+
+	# Short-hand for 'git status --long'.
+	# git s
+	s = status --long
+	# git remotes
+	rem = remote --verbose
+	# git branches
+	br = branch --all --remote --show-current
+	# Lists the latest 10 commits in a Git Graph.
+	# git l10
+	l10 = log --pretty=oneline -n 10 --graph --abbrev-commit
+
+	# Short-hand for 'git switch' without creating a branch.
+	# Example: git sw feat-43-upgrades
+	sw = switch --guess
+	# Creates a new branch with changes merged if any.
+	# Example: git b fubar
+	b = switch --merge --create --no-guess
+	# Deletes a given local branch.
+	# Example: git del feat-43-upgrades
+    del = branch -d
+
+	# Pulls latest changes from the default remote and sub-modules if any.
+	# Example: git p
+	# Example: git p --force
+	p = pull
+
+	# Commits all changes with a given commit message.
+	# Example: git cam 'chore: initial commit'
+	cam = commit -am
+	
+	# Short-hand for 'git push'.
+	# git ps
+	# git ps --force
+	ps = push
+
+	# git sm
+	# git sm update --remote --merge
+	sm = submodule
+
+    # Resets everything to its remote/origin default branch.
+    # NOTE: Recommended when trunk-based development instread of forking.
+    #       Use `gh yolo`` for forking.
+	# git yolo
+	yolo = !git fetch --force && git reset FETCH_HEAD --hard && git clean -df && git ps --force
+
+	# git this repo-named-snafu
+	this = !git init -q && git cam "chore: initial commit"
+
+# 	# git purge : Remove all branches except `main` branch.
+# 	purge = ! git branch | grep -v 'main' | xargs git branch -D
+# 	# git trash : Move all untracked stuff to `.trash` folder.
+# 	# FIXME: `mv: illegal option -- t`
+# 	# trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
+

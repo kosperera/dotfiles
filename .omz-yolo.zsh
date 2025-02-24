@@ -32,10 +32,12 @@ alias 4='cd -4'
 alias 5='cd -5'
 alias 6='cd -6'
 
-alias md='mkdir -p'
+alias md='mkdir -pv'
 alias rd=rmdir
 alias cp='cp -riv'                          # Copy recursivve, safe, and verbose
 alias mv='mv -iv'                           # Move safe and verbose
+alias ln='ln -iv'                           # Link safe and verbose
+alias rm='rm -iv'                           # Remove safe and verbose
 # List directory contents
 alias lsa='ls -lah --color'
 alias l='ls -lah --color'
@@ -46,6 +48,7 @@ alias ls='ls -lAh --color'
 alias -g c='clear'                          # c:            Clear terminal display
 alias which='type -a'                       # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias shell='echo -e ${SHELL}'              # shell:        Echo current shell
 
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive

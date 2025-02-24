@@ -59,11 +59,11 @@ sdk install java 21-ms
 DOTFILES_DIR="$HOME/.dotfiles"
 # GitHub is very special.
 mkdir -p $HOME/.config/gh
-ln -s -f $DOTFILES_DIR/.gh.yml $HOME/.config/gh/config.yml
-ln -s -f $DOTFILES_DIR/.gitconfig $HOME/.gitconfig
-ln -s -f $DOTFILES_DIR/.gitignore $HOME/.gitignore
+ln -sf $DOTFILES_DIR/.gh.yml $HOME/.config/gh/config.yml
+ln -sf $DOTFILES_DIR/.gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES_DIR/.gitignore $HOME/.gitignore
 # Make the terminal smarter.
-ln -s -f $DOTFILES_DIR/.omz-yolo.zsh $HOME/.omz-yolo.zsh
+ln -sf $DOTFILES_DIR/.omz-yolo.zsh $HOME/.omz-yolo.zsh
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
-ln -s -f $DOTFILES_DIR/.p10k.zsh $HOME/.p10k.zsh
-ln -s -f $DOTFILES_DIR/.zshrc $HOME/.zshrc
+ln -sf $DOTFILES_DIR/.p10k.zsh $HOME/.p10k.zsh
+ln -sf $DOTFILES_DIR/.zshrc $HOME/.zshrc

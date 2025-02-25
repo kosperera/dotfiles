@@ -34,6 +34,9 @@ This repo include shell scripts for executing the bulk of the configuration I fo
              --depth=1 \
              https://github.com/kosperera/dotfiles \
              ~/.dotfiles
+             
+   # Pull submodules.
+   git submodule update --recursive --remote
    ```
 
 5. Then, run `source ~/.dotfiles/update-os-settings` to make macOS and Terminal.app to be smarter.

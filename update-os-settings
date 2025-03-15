@@ -223,7 +223,7 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show the ~/Library folder
 # Error - xattr: /Users/kp/Library: No such xattr: com.apple.FinderInfo
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+# chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
@@ -302,10 +302,9 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 #
 # Kill all and reboot
 #
-
-for app in "Dock" \
-	"Finder" \
-	"Terminal"; do
-	killall "${app}" &> /dev/null
-done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+# for app in "Dock" \
+# 	"Finder" \
+# 	"Terminal"; do
+# 	killall "${app}" &> /dev/null
+# done

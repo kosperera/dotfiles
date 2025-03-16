@@ -63,4 +63,6 @@ brew install stow
 mv ~/.zshrc ~/.zshrc.bak
 mv ~/.gitconfig ~/.gitconfig.bak
 
-stow .
+stow git gh zshrc
+# Gitignore is special.
+ln -sf $(pwd)/git/.gitignore ~/.gitignore

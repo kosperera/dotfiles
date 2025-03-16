@@ -4,16 +4,16 @@ This repo include shell scripts for executing the bulk of the configuration I fo
 
 ### What's included:
 
-| File                 | Description                                                  |
-| -------------------- | ------------------------------------------------------------ |
-| `/terminals`         | Terminal.app themes (or profiles) I use.                     |
-| `install`            | Install cli tools, sdks, and apps I use.                     |
-| `update-os-settings` | Configure macOS and the Terminal to be smarter.              |
-| `.zshrc`             | Customizes Zsh and the prompt to be smarter.                 |
-| `.omz-yolo.zsh`      | Familiar environment variables, aliases, helper functions, et al. |
-| `.config/gh`         | GitHub CLI (or `gh`) configurations to specify shortcuts and helper functions. |
-| `.gitconfig`         | Git CLI (or `git`) configurations to specify my name and email, shortcuts, colors, and more. |
-| `.gitignore`         | Ignore macOS-specific and editor-specifics, taken from [@github/gitignore](https://github.com/github/gitignore). |
+| File                   | Description                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| `/terminals`           | Terminal.app themes (or profiles) I use.                     |
+| `install`              | Install cli tools, sdks, and apps I use.                     |
+| `update-os-settings`   | Configure macOS and the Terminal to be smarter.              |
+| `/zshrc`               | Customizes Zsh and the prompt to be smarter.                 |
+| `/zshrc/.omz-yolo.zsh` | Familiar environment variables, aliases, helper functions, et al. |
+| `/gh`                  | GitHub CLI (or `gh`) configurations to specify shortcuts and helper functions. |
+| `/git/.gitconfig`      | Git CLI (or `git`) configurations to specify my name and email, shortcuts, colors, and more. |
+| `/git/.gitignore`      | Ignore macOS-specific and editor-specifics, taken from [@github/gitignore](https://github.com/github/gitignore). |
 
 ## Install
 

@@ -1,10 +1,5 @@
 # `docker` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker#aliases
 alias dsprune='docker system prune -a -f --volumes'
-# `aws` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws#plugin-commands
-alias aws_config='aws configure sso'
-alias aws_login='asp admin login'
-# Common Question https://stackoverflow.com/a/75632221
-alias aws_refresh='eval "$(aws configure export-credentials --profile admin --format env)"'
 # `tf` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/terraform#aliases
 alias tfh='tf -h'
 alias tfaa='tfa -auto-approve'
@@ -68,16 +63,16 @@ alias top="top -o vsize"
 alias cleanup_DS="find . -type f -name '*.DS_Store' -ls -delete"
 alias -g stats='zsh_stats'
 
-# trash: Moves a file to the MacOS trash        
+# trash: Moves a file to the MacOS trash
 trash () { command mv "$@" ~/.Trash ; }
 # ql: Opens any file in MacOS Quicklook Preview
-ql () { qlmanage -p "$*" >& /dev/null; }    
+ql () { qlmanage -p "$*" >& /dev/null; }
 # zipf: To create a ZIP archive of a folder
-zipf () { zip -r "$1".zip "$1" ; }          
+zipf () { zip -r "$1".zip "$1" ; }
 # ff: Find file under the current directory
-ff () { /usr/bin/find . -name "$@" ; }      
+ff () { /usr/bin/find . -name "$@" ; }
 # ffs: Find file whose name starts with a given string
-ffs () { /usr/bin/find . -name "$@"'*' ; }  
+ffs () { /usr/bin/find . -name "$@"'*' ; }
 # ffe: Find file whose name ends with a given string
 ffe () { /usr/bin/find . -name '*'"$@" ; }
 
@@ -106,4 +101,24 @@ ii() {
 serve() {
     echo "Your cool server is running on http://localhost:$1"
     open http://localhost:$1/ && python3 -m http.server $1
+}
+
+# AWS profile selection
+# `aws` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws#plugin-commands
+function awsenv() {
+  if [[ "$1" == "config" ]]; then
+    # awsenv config
+    aws configure sso
+  elif [[ "$1" == "login" ]]; then
+    # awsenv login <profile>
+    asp "$2" "$1"
+  elif [[ "$1" == "refresh" ]]; then
+    # awsenv refresh <profile>
+    # Common Question https://stackoverflow.com/a/75632221
+    # alias awsenv_refresh='eval "$(aws configure export-credentials --profile $1 --format env)"'
+    aws configure export-credentials --profile "$2" --format env
+  elif [[ "$1" == "logout" ]]; then
+    # awsenv logout <profile>
+    asp "$2" "$1"
+  fi
 }

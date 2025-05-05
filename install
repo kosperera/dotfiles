@@ -39,8 +39,6 @@ brew install localstack/tap/localstack-cli
 brew install --cask visual-studio-code
 brew install --cask intellij-idea-ce
 brew install --cask typora@dev
-# Spark Mail client for Gmail https://sparkmailapp.com
-brew install --cask readdle-spark
 
 # Uninstalls unnecessary formulae.
 brew autoremove
@@ -66,5 +64,5 @@ mv ~/.zshrc ~/.zshrc.bak
 mv ~/.gitconfig ~/.gitconfig.bak
 
 stow git gh zshrc
-# Gitignore is special.
+# FIXME: Gitignore is special for some reason.
 ln -sf $(pwd)/git/.gitignore ~/.gitignore

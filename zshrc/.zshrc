@@ -25,7 +25,7 @@ export EDITOR=/opt/homebrew/bin/code
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 # For compilers to find libxml2
-export LDFLAGS="-L/usr/local/opt/libxml2/lib"  
+export LDFLAGS="-L/usr/local/opt/libxml2/lib"
 export CPPFLAGS="-I/usr/local/opt/libxml2/include"
 # For pkg-config to find libxml2
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
@@ -58,7 +58,7 @@ zinit snippet OMZP::opentofu
 zinit snippet OMZP::dotenv
 
 # Load completions
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 

@@ -20,7 +20,7 @@
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
-	
+
 [init]
 	defaultBranch = main
 
@@ -46,12 +46,12 @@
 
 [submodule]
 	recurse = true
-	
+
 [status]
   showUntrackedFiles = all
 
 [credential]
-	helper = 
+	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
@@ -101,7 +101,7 @@
 	# Commits all changes with a given commit message.
 	# Example: git cam 'chore: initial commit'
 	cam = commit -am
-	
+
 	# Short-hand for 'git push'.
 	# git ps
 	# git ps --force
@@ -114,8 +114,8 @@
     # Resets everything to its remote/origin default branch.
     # NOTE: Recommended when trunk-based development instread of forking.
     #       Use `gh yolo`` for forking.
-	# git yolo
-	yolo = !git fetch --force && git reset FETCH_HEAD --hard && git clean -df && git ps --force
+	# git sync
+	sync = !git fetch --force && git reset FETCH_HEAD --hard && gh sync && git ps --force
 
 	# git this repo-named-snafu
 	this = !git init -q && git cam "chore: initial commit"
@@ -125,4 +125,3 @@
 # 	# git trash : Move all untracked stuff to `.trash` folder.
 # 	# FIXME: `mv: illegal option -- t`
 # 	# trash = ! mkdir -p .trash && git ls-files --others --exclude-standard | xargs mv -f -t .trash
-

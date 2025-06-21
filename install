@@ -38,6 +38,7 @@ brew install localstack/tap/localstack-cli
 # Install some editors.
 brew install --cask visual-studio-code
 brew install --cask intellij-idea-ce
+brew install --cask rider
 brew install --cask drawio
 
 # Uninstalls unnecessary formulae.

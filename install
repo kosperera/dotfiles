@@ -39,6 +39,7 @@ brew install localstack/tap/localstack-cli
 brew install --cask visual-studio-code
 brew install --cask intellij-idea-ce
 brew install --cask drawio
+brew install --cask chatgpt
 
 # Uninstalls unnecessary formulae.
 brew autoremove

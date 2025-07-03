@@ -27,6 +27,7 @@ brew install httpie
 brew install --cask git-credential-manager
 brew install gh
 
+brew install azure-cli
 brew install awscli
 brew install opentofu
 

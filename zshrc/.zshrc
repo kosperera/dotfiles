@@ -52,6 +52,7 @@ zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
 # zinit snippet OMZP::gh
 zinit snippet OMZP::sdk
+zinit snippet OMZP::azure
 zinit snippet OMZP::aws
 # zinit snippet OMZP::docker
 zinit snippet OMZP::opentofu

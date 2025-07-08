@@ -33,7 +33,7 @@ brew install opentofu
 
 # Replace podman from Docker.
 # See https://github.com/localstack/localstack/issues/5304
-brew install --cask docker
+brew install --cask docker-desktop
 brew install localstack/tap/localstack-cli
 
 # Install some editors.

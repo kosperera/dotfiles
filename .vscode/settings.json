@@ -81,9 +81,6 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.showTabs": "none",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.settings.applyToAllProfiles": [
-        "docker.dockerPath"
-    ],
     "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.tree.enableStickyScroll": false,
@@ -140,4 +137,17 @@
     "github.copilot.nextEditSuggestions.fixes": true,
     "update.mode": "none",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "mssql.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "507DE09F-2D24-4174-A24B-964F1BEBE8AD"
+        }
+    ],
+    "azureTerraform.survey": {
+        "surveyPromptDate": "2025-08-30T03:44:52.225Z",
+        "surveyPromptIgnoredCount": 2
+    },
+    "window.zoomPerWindow": false,
+    "window.zoomLevel": 0.5,
+    "quarkus.tools.alwaysShowWelcomePage": false,
 }

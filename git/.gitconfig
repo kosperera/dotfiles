@@ -120,7 +120,8 @@
 	# git this repo-named-snafu
 	this = !git init -q && git cam "chore: initial commit"
 
-    # git ignore macos,vscode,java,maven > .gitignore
+    # git ignore macos,visualstudiocode,java,maven > .gitignore
+    # Read more at https://docs.gitignore.io/install/command-line#git
     ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
 
 # 	# git purge : Remove all branches except `main` branch.

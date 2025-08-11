@@ -7,7 +7,6 @@ alias tfda='tfd -auto-approve'
 alias tfada='tfa -destroy -auto-approve'
 # yolo: Upgrade every-fuckin-thing!
 alias -g yolo='zinit self-update && zinit update --parallel && \
-               sdk selfupdate force && sdk update && \
                brew update && brew upgrade --greedy && brew autoremove && brew cleanup && brew doctor'
 
 # Set standard shortcuts
@@ -122,3 +121,31 @@ function awsenv() {
     asp "$2" "$1"
   fi
 }
+
+# function azenv() {
+#   if [[ "$1" == "config" ]]; then
+#     # azenv config
+#     az ad sp create-for-rbac \
+#        --name "skol-digital-tofu-sandbox-sp-01" \
+#        --role Contributor \
+#        --scopes /subscriptions/$(az account show --query id --output tsv) \
+#     | jq -r '
+#       "ARM_CLIENT_ID=\(.appId)\n" +
+#       "ARM_CLIENT_SECRET=\(.password)\n" +
+#       "ARM_TENANT_ID=\(.tenant)\n" +
+#       "ARM_SUBSCRIPTION_ID=\(.subscription)"
+#       ' > ~/.azure/credentials
+#   elif [[ "$1" == "login" ]]; then
+#     # azenv login
+#     az "$1"
+#   elif [[ "$1" == "refresh" ]]; then
+#     # azenv refresh <subscription>
+#     # Common Question https://stackoverflow.com/a/75632221
+#     # alias awsenv_refresh='eval "$(aws configure export-credentials --profile $1 --format env)"'
+#     az config "$2" && \
+#     source ~/.azure/credentials
+#   elif [[ "$1" == "logout" ]]; then
+#     # awsenv logout <profile>
+#     az logout
+#   fi
+# }

@@ -17,8 +17,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # fi
 
 # For sdkman to work!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # Preferred editor
 export EDITOR=/opt/homebrew/bin/code
@@ -50,11 +50,8 @@ zinit light Aloxaf/fzf-tab
 # Add zsh snippets
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
-# zinit snippet OMZP::gh
-zinit snippet OMZP::sdk
 zinit snippet OMZP::azure
 zinit snippet OMZP::aws
-# zinit snippet OMZP::docker
 zinit snippet OMZP::opentofu
 zinit snippet OMZP::dotenv
 

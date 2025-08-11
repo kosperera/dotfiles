@@ -1,5 +1,6 @@
 {
     "breadcrumbs.enabled": false,
+    "debug.internalConsoleOptions": "neverOpen",
     "dev.containers.dockerComposePath": "docker compose",
     "diffEditor.codeLens": true,
     "diffEditor.experimental.showMoves": true,
@@ -132,22 +133,17 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Monaco, 'Courier New', monospace",
     "chat.agent.enabled": true,
     "editor.inlineSuggest.enabled": false,
+    "github.copilot.chat.agent.runTasks": true,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
     "github.copilot.chat.codesearch.enabled": true,
     "github.copilot.chat.agent.thinkingTool": true,
     "github.copilot.nextEditSuggestions.fixes": true,
     "update.mode": "none",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
-    "mssql.connectionGroups": [
-        {
-            "name": "ROOT",
-            "id": "507DE09F-2D24-4174-A24B-964F1BEBE8AD"
-        }
-    ],
-    "azureTerraform.survey": {
-        "surveyPromptDate": "2025-08-30T03:44:52.225Z",
-        "surveyPromptIgnoredCount": 2
-    },
     "window.zoomPerWindow": false,
     "window.zoomLevel": 0.5,
-    "quarkus.tools.alwaysShowWelcomePage": false,
+    "azureTerraform.survey": {
+        "surveyPromptDate": "2025-08-19T02:32:47.819Z",
+        "surveyPromptIgnoredCount": 0
+    }
 }

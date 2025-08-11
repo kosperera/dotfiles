@@ -38,7 +38,6 @@ brew install localstack/tap/localstack-cli
 
 # Install some editors.
 brew install --cask visual-studio-code
-brew install --cask intellij-idea-ce
 brew install --cask typora@dev
 brew install --cask drawio
 brew install --cask chatgpt
@@ -46,14 +45,6 @@ brew install --cask chatgpt
 # Uninstalls unnecessary formulae.
 brew autoremove
 brew cleanup
-
-# First, make sure to install Sdkman from https://sdkman.io/install
-curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Install some sdks.
-# https://sdkman.io/jdks#ms
-sdk install java 21-ms
 
 # Manage symlinks.
 # Symlink dotfiles into HOME

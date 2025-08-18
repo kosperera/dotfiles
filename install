@@ -60,4 +60,5 @@ mv ~/.gitconfig ~/.gitconfig.bak
 stow git gh zshrc
 # FIXME: Gitignore is special for some reason.
 ln -sf $(pwd)/git/.gitignore ~/.gitignore
+# FIXME: VS Code is special for having global settings somewhere else.
 ln -sf $(pwd)/.vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json

@@ -7,7 +7,10 @@ alias tfda='tfd -auto-approve'
 alias tfada='tfa -destroy -auto-approve'
 # yolo: Upgrade every-fuckin-thing!
 alias -g yolo='zinit self-update && zinit update --parallel && \
-               brew update && brew upgrade --greedy && brew autoremove && brew cleanup && brew doctor'
+               dsprune && \
+               brew update && brew upgrade --greedy && \
+               brew autoremove && brew cleanup && \
+               brew doctor'
 
 # Set standard shortcuts
 alias -g cd..='cd ..'

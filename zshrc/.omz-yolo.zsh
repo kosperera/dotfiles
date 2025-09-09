@@ -1,5 +1,6 @@
 # `docker` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker#aliases
-alias dsprune='docker system prune -a -f --volumes'
+alias dsprune='echo "==> Docker: Removing unused data" && \
+               docker system prune -a -f --volumes'
 # `tf` aliases managed by https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/terraform#aliases
 alias tfh='tf -h'
 alias tfaa='tfa -auto-approve'
@@ -7,7 +8,6 @@ alias tfda='tfd -auto-approve'
 alias tfada='tfa -destroy -auto-approve'
 # yolo: Upgrade every-fuckin-thing!
 alias -g yolo='zinit self-update && zinit update --parallel && \
-               dsprune && \
                brew update && brew upgrade --greedy && \
                brew autoremove && brew cleanup && \
                brew doctor'

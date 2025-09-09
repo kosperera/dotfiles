@@ -57,7 +57,7 @@ brew install stow
 mv ~/.zshrc ~/.zshrc.bak
 mv ~/.gitconfig ~/.gitconfig.bak
 
-stow git gh zshrc
+stow az git gh zshrc
 # FIXME: Gitignore is special for some reason.
 ln -sf $(pwd)/git/.gitignore ~/.gitignore
 # FIXME: VS Code is special for having global settings somewhere else.

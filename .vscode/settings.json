@@ -38,6 +38,7 @@
     "editor.stickyScroll.enabled": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "explorer.excludeGitIgnore": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
@@ -59,10 +60,20 @@
     "rest-client.previewOption": "exchange",
     "scm.defaultViewMode": "tree",
     "scm.diffDecorations": "none",
+    "scm.graph.showIncomingChanges": true,
+    "scm.graph.showOutgoingChanges": true,
+    "scm.repositories.explorer": true,
+    "scm.repositories.selectionMode": "multiple",
+    "git.branchRandomName.enable": true,
+    "git.verboseCommit": true,
+    "git.useEditorAsCommitInput": true,
+    "git.detectSubmodules": true,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.shellIntegration.history": 100,
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.suggest.selectionMode": "always",
     "[toml]": {
         "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
@@ -82,6 +93,7 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.showTabs": "none",
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
     "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.tree.enableStickyScroll": false,
@@ -133,6 +145,7 @@
     "chat.agent.enabled": true,
     "chat.mcp.assisted.nuget.enabled": true,
     "chat.mcp.autostart": "newAndOutdated",
+    "chat.mcp.gallery.enabled": true,
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Monaco, 'Courier New', monospace",
     "editor.aiStats.enabled": true,
     "editor.inlineSuggest.enabled": false,
@@ -150,5 +163,19 @@
     "update.mode": "none",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "window.zoomPerWindow": false,
-    "window.zoomLevel": 0.5,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "window.zoomLevel": 1
 }

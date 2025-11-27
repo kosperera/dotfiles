@@ -44,6 +44,9 @@
 [push]
 	recurseSubmodules = no
 
+[merge]
+    ff = no
+
 [submodule]
 	recurse = true
 
@@ -75,31 +78,38 @@
 	# Short-hand for 'git status --long'.
 	# git s
 	s = status --long
+
+    # Shows the URLs for each remote (fetch and push).
 	# git remotes
 	rem = remote --verbose
+
+    # Lists all the branches, including remote.
 	# git branches
-	br = branch --all --remote --show-current
-	# Lists the latest 10 commits in a Git Graph.
-	# git l10
-	l10 = log --pretty=oneline -n 10 --graph --abbrev-commit
+	br = branch --all --remote
+
+	# Lists the latest commits in a Git Graph.
+	# git lol
+    # git lol HEAD origin/main
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 	# Short-hand for 'git switch' without creating a branch.
-	# Example: git sw feat-43-upgrades
+	# git sw feat-43-upgrades
 	sw = switch --guess
 	# Creates a new branch with changes merged if any.
-	# Example: git b fubar
-	b = switch --merge --create --no-guess
+	# git b fubar
+	b = switch --merge --no-guess --create
+
 	# Deletes a given local branch.
-	# Example: git del feat-43-upgrades
+	# git del feat-43-upgrades
     del = branch -d
 
 	# Pulls latest changes from the default remote and sub-modules if any.
-	# Example: git p
-	# Example: git p --force
+	# git p
+	# git p --force
 	p = pull
 
 	# Commits all changes with a given commit message.
-	# Example: git cam 'chore: initial commit'
+	# git cam 'chore: initial commit'
 	cam = commit -am
 
 	# Short-hand for 'git push'.

@@ -46,6 +46,7 @@
 
 [merge]
     ff = no
+    conflictstyle = zdiff3
 
 [submodule]
 	recurse = true

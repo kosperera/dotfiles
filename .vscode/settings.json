@@ -23,7 +23,7 @@
     "editor.guides.bracketPairs": true,
     "editor.guides.indentation": false,
     "editor.hideCursorInOverviewRuler": true,
-    "editor.hover.enabled": true,
+    "editor.hover.enabled": "on",
     "editor.lightbulb.enabled": "off",
     "editor.matchBrackets": "never",
     "editor.minimap.enabled": false,

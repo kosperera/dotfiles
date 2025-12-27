@@ -15,6 +15,9 @@ brew doctor
 # Update recipes and formulae.
 brew update && brew upgrade
 
+# Install secured password manager
+brew install --cask proton-pass
+
 # Nerd Fonts for the Terminal and the Editors.
 # Once installed, you can select them in the Terminal preferences.
 brew search '/font-jetbrains.*-nerd-font/' | awk '{ print $1 }' | xargs brew install

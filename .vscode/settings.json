@@ -1,7 +1,6 @@
 {
     "breadcrumbs.enabled": false,
     "debug.internalConsoleOptions": "neverOpen",
-    "dev.containers.dockerComposePath": "docker compose",
     "diffEditor.codeLens": true,
     "diffEditor.experimental.showMoves": true,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -65,9 +64,9 @@
     "scm.repositories.explorer": true,
     "scm.repositories.selectionMode": "multiple",
     "git.branchRandomName.enable": true,
+    "git.detectSubmodules": true,
     "git.verboseCommit": true,
     "git.useEditorAsCommitInput": true,
-    "git.detectSubmodules": true,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.shellIntegration.enabled": true,
@@ -94,6 +93,7 @@
     "workbench.editor.showTabs": "none",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.sideBar.location": "right",
     "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.tree.enableStickyScroll": false,
@@ -147,6 +147,8 @@
     "chat.mcp.autostart": "newAndOutdated",
     "chat.mcp.gallery.enabled": true,
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
     "editor.aiStats.enabled": true,
     "editor.inlineSuggest.enabled": false,
     "github.copilot.chat.agent.runTasks": true,
@@ -177,5 +179,8 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1.25,
+    "excalidraw.language": "en",
+    "hediet.vscode-drawio.simpleLabels": true,
+    "hediet.vscode-drawio.theme": "min"
 }

@@ -12,16 +12,52 @@
     "hide_gitignore": true,
     "hide_root": true,
   },
-  "theme": "One Dark",
+  "title_bar": {
+    // "show_branch_icon": true,
+    "show_onboarding_banner": false,
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "file_finder": {
+    "modal_max_width": "large",
+  },
+  "gutter": {
+    "min_line_number_digits": 0,
+  },
+  "theme": "Catppuccin Mocha - No Italics",
+  "theme_overrides": {
+    "Catppuccin Mocha - No Italics": {
+      "border.variant": "#1E1E2D",
+      "border": "#181824",
+      // "title_bar.background": "#1E1E2D",
+      // "panel.background": "#1E1E2D",
+      "panel.focused_border": "#1E1E2D",
+    },
+  },
+  "icon_theme": "Base Charmed Icons",
+  "buffer_font_size": 16,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "scroll_beyond_last_line": "one_page",
+  "scrollbar": {
+    "show": "never"
+  },
   "git_panel": {
+    "dock":"right",
     "tree_view": true,
+    // "default_width": 400,
     "sort_by_path": true,
   },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "resize_all_panels_in_dock": ["right"],
   "always_treat_brackets_as_autoclosed": true,
   "colorize_brackets": true,
   "diff_view_style": "unified",
   "format_on_save": "off",
   "auto_update": false,
+  "restore_on_startup": "launchpad",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,

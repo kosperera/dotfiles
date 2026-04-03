@@ -7,25 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "project_panel": {
-    "dock": "right",
-    "hide_gitignore": true,
-    "hide_root": true,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "calt": true,
   },
-  "title_bar": {
-    // "show_branch_icon": true,
-    "show_onboarding_banner": false,
+  "ui_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha - No Italics",
   },
-  "tab_bar": {
-    "show": false
-  },
-  "file_finder": {
-    "modal_max_width": "large",
-  },
-  "gutter": {
-    "min_line_number_digits": 0,
-  },
-  "theme": "Catppuccin Mocha - No Italics",
   "theme_overrides": {
     "Catppuccin Mocha - No Italics": {
       "border.variant": "#1E1E2D",
@@ -36,36 +28,96 @@
     },
   },
   "icon_theme": "Base Charmed Icons",
-  "buffer_font_size": 16,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "scroll_beyond_last_line": "one_page",
-  "scrollbar": {
-    "show": "never"
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_onboarding_banner": false,
   },
-  "git_panel": {
-    "dock":"right",
-    "tree_view": true,
-    // "default_width": 400,
-    "sort_by_path": true,
+  "tab_bar": {
+    "show": false,
   },
-  "outline_panel": {
-    "dock": "right"
-  },
-  "resize_all_panels_in_dock": ["right"],
+  "tab_size": 2,
+  "hard_tabs": false,
   "always_treat_brackets_as_autoclosed": true,
   "colorize_brackets": true,
+  "detect_indentation": false,
+  "soft_wrap": "none",
+  "format_on_save": "on",
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+  "autosave": "off",
+  "show_completions_on_input": false,
+  "show_inline_completions": false,
+  "indent_guides": {
+    "enabled": false,
+  },
+  "gutter": {
+    "line_numbers": true,
+    "min_line_number_digits": 0,
+  },
+  "scroll_beyond_last_line": "one_page",
+  "scrollbar": {
+    "show": "never",
+  },
+  "resize_all_panels_in_dock": ["right"],
+  "project_panel": {
+    "dock": "right",
+    "git_status": false,
+    "hide_gitignore": true,
+    "hide_root": true,
+  },
+  "git_panel": {
+    "dock": "right",
+    "tree_view": true,
+    "sort_by_path": true,
+  },
   "diff_view_style": "unified",
-  "format_on_save": "off",
-  "auto_update": false,
-  "restore_on_startup": "launchpad",
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+    },
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "file_finder": {
+    "modal_max_width": "large",
+  },
+  "terminal": {
+    "shell": {
+      "program": "zsh",
+    },
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_size": 14,
+    "line_height": "standard",
+  },
+  "vim_mode": false,
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
   },
+  "languages": {
+    "JSONC": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+    },
+    "YAML": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+    },
+    "TOML": {
+      "format_on_save": "on",
+    },
+    "Docker Compose": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "format_on_save": "on",
+    },
+  },
+  "auto_update": false,
+  "restore_on_startup": "launchpad",
   "session": {
     "trust_all_worktrees": true,
-  },
-  "terminal": {
-    "line_height": "standard"
   },
 }

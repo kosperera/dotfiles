@@ -43,8 +43,7 @@ brew install localstack/tap/localstack-cli
 brew install --cask zed
 brew install --cask visual-studio-code
 brew install --cask typora@dev
-brew install --cask drawio
-brew install --cask chatgpt
+brew install --cask claude
 
 # Uninstalls unnecessary formulae.
 brew autoremove

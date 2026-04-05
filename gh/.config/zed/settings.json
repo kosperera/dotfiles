@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ui_font_family": ".SystemUIFont",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 16,
   "buffer_font_features": {
@@ -46,7 +47,7 @@
   "remove_trailing_whitespace_on_save": true,
   "autosave": "off",
   "show_completions_on_input": false,
-  "show_inline_completions": false,
+  "show_edit_predictions": false,
   "indent_guides": {
     "enabled": false,
   },

@@ -44,6 +44,8 @@ brew install --cask zed
 brew install --cask visual-studio-code
 brew install --cask typora@dev
 brew install --cask claude
+# Disable auto-update claude app.
+defaults write com.anthropic.claudefordesktop disableAutoUpdates -bool true
 
 # Uninstalls unnecessary formulae.
 brew autoremove

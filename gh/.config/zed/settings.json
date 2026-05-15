@@ -8,12 +8,12 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "right",
   },
   "agent": {
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "ui_font_family": ".SystemUIFont",
   "buffer_font_family": "JetBrainsMono Nerd Font",
@@ -38,7 +38,6 @@
   },
   "icon_theme": "Base Charmed Icons",
   "title_bar": {
-    "show_branch_icon": false,
     "show_onboarding_banner": false,
   },
   "tab_bar": {

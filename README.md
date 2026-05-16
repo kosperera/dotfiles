@@ -38,17 +38,31 @@ This repo include shell scripts for executing the bulk of the configuration I fo
 6. Next, run `source ./install` to install nerd fonts, dev tools, cli tools, sdks, apps and the like.
 7. Import Terminal.app theme from [/terminals](/terminals) folder, then change font to *JetBrains Mono Nerd Font 12pt*.
 8. Restart the Terminal.app to [install and setup cli tools](.zshrc). Some of these changes require a logout/restart to take effect.
-9. Sign into IDEA, Rider, and Visual Studio Code to sync settings, profiles, extensions et al.
-10. Sign into Docker Desktop and install Docker Extensions.
-11. Sing into `gh`.
+9. Generate a fresh SSH key, then add the public key to GitHub and Codeberg.
+   ```bash
+   ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "the real kosala plus ssh at gmail dot com"
+   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+   pbcopy < ~/.ssh/id_ed25519.pub
+
+   # Verify
+   ssh -T git@github.com
+   ssh -T git@codeberg.org
+
+   # Must be inside dotfiles repo.
+   git remote set-url origin git@github.com:kosperera/dotfiles.git
+   git remove -v
+   ```
+10. Sign into IDEA, Rider, and Visual Studio Code to sync settings, profiles, extensions et al.
+11. Sign into Docker Desktop and install Docker Extensions.
+12. Sing into `gh`.
     ```bash
     gh auth login
     # Where do you use GitHub?? GitHub.com
-    # What is your preferred protocol for Git operations on this host? HTTPS
-    # Authenticate Git with your GitHub credentials? Yes
+    # What is your preferred protocol for Git operations on this host? SSH
+    # Authenticate Git with your GitHub credentials? No
     # How would you like to authenticate GitHub CLI? Login with a web browser
     ```
-12. Sign into `aws`.
+13. Sign into `aws`.
     ```bash
     awsenv config
     # SSO session name (Recommended): Admin

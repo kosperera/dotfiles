@@ -27,7 +27,6 @@ brew install zoxide
 brew install httpie
 
 # Uncomment if not installed via xcode.
-brew install --cask git-credential-manager
 brew install gh
 
 brew install azure-cli
@@ -43,6 +42,7 @@ brew install localstack/tap/localstack-cli
 brew install --cask zed
 brew install --cask visual-studio-code
 brew install --cask typora@dev
+
 brew install --cask claude
 # Disable auto-update claude app.
 defaults write com.anthropic.claudefordesktop disableAutoUpdates -bool true
@@ -51,18 +51,19 @@ defaults write com.anthropic.claudefordesktop disableAutoUpdates -bool true
 brew autoremove
 brew cleanup
 
-# Manage symlinks.
-# Symlink dotfiles into HOME
-# Symlink instead of replacing.
-# ln -sf <source> <destination>
-# E.g. ln -sf ~/.dotfiles/.docker-compose ~/.docker-compose
-# Use stow instead.
+# Use stow to manage symlinks.
 brew install stow
 # Backup existing files.
 mv ~/.zshrc ~/.zshrc.bak
 mv ~/.gitconfig ~/.gitconfig.bak
 
-stow az git gh zshrc
+stow az git gh ssh zed zshrc
+
+# Symlink dotfiles into HOME
+# Symlink instead of replacing.
+# ln -sf <source> <destination>
+# E.g. ln -sf ~/.dotfiles/.docker-compose ~/.docker-compose
+
 # FIXME: Gitignore is special for some reason.
 ln -sf $(pwd)/git/.gitignore ~/.gitignore
 # FIXME: VS Code is special for having global settings somewhere else.

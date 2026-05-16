@@ -4,6 +4,10 @@
 .trash/
 #
 !.gitignore
+#
+.ssh/*
+!.ssh/config
+
 
 #
 # Archives.gitignore

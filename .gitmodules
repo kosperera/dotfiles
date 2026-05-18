@@ -1,4 +1,4 @@
 [submodule "terminals"]
 	path = terminals
-	url = git@github.com:kosperera/try-macos-terminals.git
+	url = git@codeberg.org:kosperera/try-macos-terminals.git
 	shallow = true
